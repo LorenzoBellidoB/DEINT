@@ -25,6 +25,18 @@ namespace WpfAppHolaMundo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ClsPersona persona = new ClsPersona();
+            if(txtNombre.Text != null && !txtNombre.Text.Equals(""))
+            {
+                persona.Nombre = txtNombre.Text;
+                persona.Apellido = txtApellido.Text;
+                persona.Fecha = fecha.SelectedDate;
+                MessageBox.Show("Hola, " + persona.Nombre);
+            }
+            else
+            {
+                mError.Content = "Error, no hay nadie";
+            }
+                                  
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

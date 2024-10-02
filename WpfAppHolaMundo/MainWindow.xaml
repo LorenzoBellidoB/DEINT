@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="231,149,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Name="btnSaludar" Content="Saludo" FontSize="15" HorizontalAlignment="Left" Margin="191,246,0,0" VerticalAlignment="Top" Click="Button_Click" Height="33" Width="69"/>
         <TextBlock HorizontalAlignment="Left" Margin="90,63,0,0" TextWrapping="Wrap" FontSize="20" Text="Nombre: " VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="191,72,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged">
+        <TextBox Name="txtNombre" HorizontalAlignment="Left" Margin="191,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,6 +19,20 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
+        <Label Name="mError" Content="" Foreground="red" FontSize="20" HorizontalAlignment="Left" Margin="449,68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="90,104,0,0" TextWrapping="Wrap" FontSize="20" Text="Apellido: " VerticalAlignment="Top"/>
+        <TextBox Name="txtApellido" HorizontalAlignment="Left" Margin="191,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="90,145,0,0" TextWrapping="Wrap" FontSize="20" Text="Fecha: " VerticalAlignment="Top"/>
+        <DatePicker Name="fecha" HorizontalAlignment="Left" Margin="191,148,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
