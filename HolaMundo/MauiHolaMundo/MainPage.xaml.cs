@@ -9,16 +9,15 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async Task Prompt()
         {
-            count++;
+            string result = await DisplayPromptAsync("", "Introduce tus apellidos");
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void OnSaludoClicked(object sender, EventArgs e)
+        {
+            result = Prompt();
+            saludo.Text = saludo.Text + nombre.Text + result;
         }
     }
 
