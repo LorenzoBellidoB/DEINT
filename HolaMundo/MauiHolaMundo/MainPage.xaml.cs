@@ -17,12 +17,13 @@ namespace MauiHolaMundo
             
             string apellidos = await DisplayPromptAsync("Apellidos", "Introduce tus apellidos");
             ClsPersona persona = new ClsPersona();
-            persona.Nombre = nombre.Text.ToString();
-            persona.Apellidos = apellidos;
+                       
 
             if(!String.IsNullOrEmpty(persona.Nombre) && !String.IsNullOrEmpty(persona.Apellidos))
             {
-                saludo.Text += nombre.Text + " " + apellidos;
+                persona.Nombre = nombre.Text.ToString();
+                persona.Apellidos = apellidos;
+                saludo.Text += persona.Nombre + " " + apellidos;
                 saludo.TextColor = Colors.Black;
             }
             else
