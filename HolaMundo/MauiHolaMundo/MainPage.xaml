@@ -13,18 +13,19 @@
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <Entry x:Name="nombre">
-                
+            <Entry x:Name="nombre"
+                   Placeholder="Escriba aqui su nombre">
             </Entry>
 
             <Label
                 x:Name="saludo"
                 Text="Hola, "
                 Style="{StaticResource Headline}"
+                
                 SemanticProperties.HeadingLevel="Level2"
                 />
 
-            <
+            
             <Button
                 x:Name="SaludoBtn"
                 Text="Saludar" 
