@@ -24,18 +24,20 @@
 
             <Button
                 x:Name="btn2"
-                Text="Boton 2"
-                Clicked="onClickedBtn2"
-                BackgroundColor="Blue"
-                HeightRequest="70"
-                WidthRequest="200"
-                FontFamily="Verdana"
-                FontSize="16"
-                FontAttributes="Bold"
-                BorderColor="Yellow"
-                BorderWidth="5"
-                Margin="30"
-                />
+                Clicked="boton2">
+                <Button.Text>Boton 2</Button.Text>
+                <Button.BackgroundColor>Blue</Button.BackgroundColor>
+                <Button.HeightRequest>70</Button.HeightRequest>
+                <Button.WidthRequest>200</Button.WidthRequest>
+                <Button.FontFamily>Verdana</Button.FontFamily>
+                <Button.FontSize>16</Button.FontSize>
+                <Button.FontAttributes>Bold</Button.FontAttributes>
+                <Button.BorderColor>Yellow</Button.BorderColor>
+                <Button.BorderWidth>5</Button.BorderWidth>
+                <Button.Margin>30</Button.Margin>
+            </Button>
+
+            <StackLayout x:Name="stackLayout"></StackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
