@@ -5,6 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout
+            x:Name="VSLBotones"
             Padding="30,0"
             Spacing="25">
             
@@ -12,14 +13,14 @@
                 x:Name="btn1"
                 Text="Boton 1"
                 BackgroundColor="Blue"
-                HeightRequest="70"
-                WidthRequest="200"
+                MaximumHeightRequest="70"
+                MaximumWidthRequest="200"
                 FontFamily="Verdana"
                 FontSize="16"
                 FontAttributes="Bold"
                 BorderColor="Yellow"
                 BorderWidth="5"
-                Margin="30"
+                Margin="3"
                 />
 
             <Button
@@ -27,17 +28,17 @@
                 Clicked="boton2">
                 <Button.Text>Boton 2</Button.Text>
                 <Button.BackgroundColor>Blue</Button.BackgroundColor>
-                <Button.HeightRequest>70</Button.HeightRequest>
-                <Button.WidthRequest>200</Button.WidthRequest>
+                <Button.MaximumHeightRequest>70</Button.MaximumHeightRequest>
+                <Button.MaximumWidthRequest>200</Button.MaximumWidthRequest>
                 <Button.FontFamily>Verdana</Button.FontFamily>
                 <Button.FontSize>16</Button.FontSize>
                 <Button.FontAttributes>Bold</Button.FontAttributes>
                 <Button.BorderColor>Yellow</Button.BorderColor>
                 <Button.BorderWidth>5</Button.BorderWidth>
-                <Button.Margin>30</Button.Margin>
+                <Button.Margin>3</Button.Margin>
             </Button>
 
-            <StackLayout x:Name="stackLayout"></StackLayout>
+            
 
         </VerticalStackLayout>
     </ScrollView>
