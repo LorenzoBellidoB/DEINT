@@ -7,7 +7,7 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Entry x:Name="oneTime1"  Text="OneTime"></Entry>
+            <Entry x:Name="oneTime1" BindingContext="{x:Reference oneTime2}" Text="{Binding Path= Text,Mode=OneTime}"></Entry>
             <Entry x:Name="oneTime2" BindingContext="{x:Reference oneTime1}" Text="{Binding Path= Text,Mode=OneTime}"></Entry>
             <Entry x:Name="oneWay1"  Text="OneWay"></Entry>
             <Entry x:Name="oneWay2" BindingContext="{x:Reference oneWay1}" Text="{Binding Path= Text,Mode=OneWay}"></Entry>
