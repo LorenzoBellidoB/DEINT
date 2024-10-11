@@ -7,7 +7,7 @@
         Padding="30,0"
         Spacing="25">
 
-        <ActivityIndicator IsRunning="True" Color="Blue" Margin="30"></ActivityIndicator>
-        <Stepper></Stepper>
+        <ActivityIndicator x:Name="indicator" BindingContext="{x:Reference switch}" IsRunning="{Binding Path=IsToggled}" Color="Blue" Margin="30"></ActivityIndicator>
+        <Switch x:Name="switch" IsToggled="False"></Switch>
     </VerticalStackLayout>
 </ContentPage>
