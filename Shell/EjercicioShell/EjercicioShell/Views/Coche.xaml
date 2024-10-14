@@ -5,7 +5,7 @@
              Title="Coche">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Coche"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

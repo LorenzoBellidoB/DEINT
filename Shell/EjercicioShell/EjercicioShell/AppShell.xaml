@@ -5,23 +5,34 @@
        x:Class="EjercicioShell.AppShell">
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <Tab Title="Vehiculos"
+        <Tab Title="Coches"
              Icon="vehicle.png">
-            <ShellContent Title="Coches"
-                          Icon="car.png"
-                          ContentTemplate="{DataTemplate views:Coche}" />
-            <ShellContent Title="Motos"
-                          Icon="moto.png"
-                          ContentTemplate="{DataTemplate views:Moto}" />
+            <ShellContent Title="Ferrari"
+                          Icon="ferrari.png"
+                          ContentTemplate="{DataTemplate views:Ferrari}" />
+            <ShellContent Title="BMW"
+                          Icon="bmw.png"
+                          ContentTemplate="{DataTemplate views:Bmw}" />
         </Tab>
-      
-        <ShellContent Title="BMW"
-                      Icon="bmw.png"
-                      ContentTemplate="{DataTemplate views:Bmw}" />
-        <ShellContent Title="Ferrari"
-                      Icon="ferrari.png"
-                      ContentTemplate="{DataTemplate views:Ferrari}" />
-
+        <Tab Title="Motos"
+             Icon="moto.png">
+            <ShellContent Title="Ferrari"
+                  Icon="ferrari.png"
+                  ContentTemplate="{DataTemplate views:Ferrari}" />
+            <ShellContent Title="BMW"
+                  Icon="bmw.png"
+                  ContentTemplate="{DataTemplate views:Bmw}" />
+        </Tab>
     </FlyoutItem>
+    <ShellContent Title="Ajustes"
+                  Icon="ajuste.png"
+                  ContentTemplate="{DataTemplate views:Ajustes}">
+        
+    </ShellContent>
+    <ShellContent Title="About"
+                  Icon="about.png"
+                  ContentTemplate="{DataTemplate views:About}">
+        
+    </ShellContent>
 
 </Shell>
