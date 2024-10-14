@@ -5,7 +5,7 @@
              Title="Pagina2">
     <VerticalStackLayout>
         <Label 
-            Text="Página 2"
+            Text="Soy la página 2"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

@@ -1,9 +1,9 @@
 namespace NavPage.Views;
 
-public partial class PaginaTabbed : ContentPage
+public partial class PaginaTabbed : TabbedPage
 {
 	public PaginaTabbed()
 	{
-		InitializeComponent();
-	}
+        InitializeComponent();
+    }
 }

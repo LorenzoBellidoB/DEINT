@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.11.35312.102
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavPage", "NavPage\NavPage.csproj", "{1FAB7677-BF07-4E86-9D73-10BDF5FF268F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavPage", "NavPage\NavPage.csproj", "{0E1E0E41-02D6-4547-A7E5-33F212F84500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,17 +11,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1FAB7677-BF07-4E86-9D73-10BDF5FF268F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FAB7677-BF07-4E86-9D73-10BDF5FF268F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FAB7677-BF07-4E86-9D73-10BDF5FF268F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{1FAB7677-BF07-4E86-9D73-10BDF5FF268F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FAB7677-BF07-4E86-9D73-10BDF5FF268F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FAB7677-BF07-4E86-9D73-10BDF5FF268F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0E1E0E41-02D6-4547-A7E5-33F212F84500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1E0E41-02D6-4547-A7E5-33F212F84500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1E0E41-02D6-4547-A7E5-33F212F84500}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0E1E0E41-02D6-4547-A7E5-33F212F84500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1E0E41-02D6-4547-A7E5-33F212F84500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E1E0E41-02D6-4547-A7E5-33F212F84500}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AD516233-19BE-46D9-B958-D9AEF8EBBE63}
+		SolutionGuid = {5EE566FF-519C-4B9B-BB7F-253FB19C8AFE}
 	EndGlobalSection
 EndGlobal
