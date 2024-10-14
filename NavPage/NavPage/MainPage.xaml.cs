@@ -1,24 +1,38 @@
-﻿namespace NavPage
+﻿using NavPage.Views;
+namespace NavPage
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void IrTabbed(object sender, EventArgs e)
         {
-            count++;
+            Navigation.PushAsync(new PaginaTabbed());
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void IrPagina4(object sender, EventArgs e)
+        {
+            ClasePersona persona = new ClasePersona();
+            persona.Nombre = nombre.Text.ToString();
+            persona.Apellido = apellidos.Text.ToString();
+            Navigation.PushAsync(new Pagina4(persona));
+        }
+
+        private void IrPagina5(object sender, EventArgs e)
+        {
+            ClasePersona persona = new ClasePersona();
+            persona.Nombre = nombre.Text.ToString();
+            persona.Apellido = apellidos.Text.ToString();
+            Navigation.PushAsync(new Pagina5{
+                BindingContext = persona
+            });
         }
     }
 

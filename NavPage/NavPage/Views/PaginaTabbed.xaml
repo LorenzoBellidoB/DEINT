@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:local="clr-namespace:NavPage"
+            xmlns:local="clr-namespace:NavPage.Views"
             x:Class="NavPage.Views.PaginaTabbed"
-            Title="PaginaTabbed">
-    <local:Pagina1/>
-    <local:Pagina2/>
-    <local:Pagina3/>
+            Title="PaginaTabbed"
+            BarBackground="Coral"
+            BarTextColor="Black"
+            SelectedTabColor="Gray"
+            UnselectedTabColor="AliceBlue">
+
+    <local:Pagina1 IconImageSource="ferrari.png"></local:Pagina1>
+    <local:Pagina2 IconImageSource="bmw.png"></local:Pagina2>
+    <local:Pagina3 IconImageSource="dealer.png"></local:Pagina3>
 </TabbedPage>

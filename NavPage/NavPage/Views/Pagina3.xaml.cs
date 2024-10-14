@@ -6,4 +6,9 @@ public partial class Pagina3 : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void Pagina3_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
+    }
 }

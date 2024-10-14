@@ -8,7 +8,7 @@ namespace NavPage
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PaginaTabbed());
+            MainPage = new NavigationPage(new MainPage());
         }
     }
 }
