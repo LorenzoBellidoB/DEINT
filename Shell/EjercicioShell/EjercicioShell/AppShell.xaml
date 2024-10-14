@@ -3,8 +3,11 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:EjercicioShell.Views"
        x:Class="EjercicioShell.AppShell">
-
+        <Shell.FlyoutHeader>
+        <Image Source="dealer.png" MaximumHeightRequest="70"></Image>
+        </Shell.FlyoutHeader>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        
         <Tab Title="Coches"
              Icon="vehicle.png">
             <ShellContent Title="Ferrari"
