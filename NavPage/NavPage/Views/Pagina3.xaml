@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NavPage.Views.Pagina3"
              Title="Pagina3">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
         <Label 
             Text="Soy la página 3"
             VerticalOptions="Center" 
