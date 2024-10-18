@@ -21,7 +21,7 @@
                     <FlexLayout Wrap="Wrap" Grid.Column="0" Margin="0,0,5,0">
 
                         <Border Stroke="Black" HeightRequest="100" WidthRequest="100">
-                            <Image Background="Orange" HeightRequest="100" WidthRequest="100"></Image>
+                            <Image Background="LightCoral" HeightRequest="100" WidthRequest="100"></Image>
                         </Border>
                         <Border Stroke="Black" HeightRequest="100" WidthRequest="100">
                             <Image Background="LightBlue" HeightRequest="100" WidthRequest="100"></Image>
