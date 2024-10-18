@@ -7,12 +7,12 @@
            StrokeShape ="RoundRectangle 10,10,0,0"
             StrokeThickness="5">
         <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
-            <Button Text="Boton1"></Button>
-            <Button Text="Boton2"></Button>
-            <Button Text="Boton3"></Button>
+            <Button Text="Boton1" WidthRequest="100" BorderWidth="2" BorderColor="Black" Padding="5"></Button>
+            <Button Text="Boton2" WidthRequest="100"></Button>
+            <Button Text="Boton3" WidthRequest="100"></Button>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Nombre: "></Label>
-                <Entry></Entry>
+                <Label Text="Nombre: " FontAttributes="Bold"></Label>
+                <Entry MinimumWidthRequest="200" BackgroundColor="AliceBlue"></Entry>
             </StackLayout>
         </StackLayout>
     </Border>
