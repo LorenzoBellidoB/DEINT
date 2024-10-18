@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio1.MainPage">
+    <Border Stroke="Purple"
+           Margin="15"
+           StrokeShape ="RoundRectangle 10,10,0,0"
+            StrokeThickness="5">
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+            <Button Text="Boton1"></Button>
+            <Button Text="Boton2"></Button>
+            <Button Text="Boton3"></Button>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre: "></Label>
+                <Entry></Entry>
+            </StackLayout>
+        </StackLayout>
+    </Border>
+
+</ContentPage>
