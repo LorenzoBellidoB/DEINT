@@ -14,7 +14,10 @@ namespace Ejercicio5UI
             PersonListView.ItemsSource = listado;
         }
 
-        
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

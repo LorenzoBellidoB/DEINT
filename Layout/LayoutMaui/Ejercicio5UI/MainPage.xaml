@@ -3,20 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ejercicio5UI.MainPage">
 
-    <AbsoluteLayout>
-    <ListView x:Name="PersonListView" ItemsSource="{Binding listado}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Nombre}"
-                          Detail="{Binding Apellidos}"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-        
-    </ListView>
-        <ImageButton Source="plus.png" 
-            BackgroundColor="Green"
-        CornerRadius="80"
-            AbsoluteLayout.LayoutFlags="PositionProportional"  
-            AbsoluteLayout.LayoutBounds=".95,.95,80,80" />
-    </AbsoluteLayout>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <ImageButton Source="lapiz.png" 
+             BackgroundColor="IndianRed"
+             WidthRequest="30"
+             HeightRequest="30"
+             CornerRadius="80"
+             Clicked="ImageButton_Clicked" />
+            <ImageButton Source="papelera.png" 
+             BackgroundColor="LightGreen"
+             WidthRequest="30"
+             HeightRequest="30"
+             CornerRadius="80"
+             Clicked="ImageButton_Clicked" />
+        </StackLayout>
+
+        <ListView x:Name="PersonListView" ItemsSource="{Binding listado}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Nombre}"
+                              Detail="{Binding Apellidos}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <AbsoluteLayout Background="Transparent">
+            <ImageButton Source="plus.png" 
+                         BackgroundColor="SteelBlue"
+                         WidthRequest="30"
+                         HeightRequest="30"
+                         CornerRadius="80"
+                         Clicked="ImageButton_Clicked"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"  
+                         AbsoluteLayout.LayoutBounds="0.95, 0.95, 80, 80" />
+        </AbsoluteLayout>
+    </StackLayout>
 </ContentPage>
