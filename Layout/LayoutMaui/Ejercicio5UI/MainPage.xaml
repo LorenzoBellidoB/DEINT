@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ejercicio5UI.MainPage">
 
-    <Grid>
+    <Grid Padding="10">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -41,6 +41,6 @@
                          CornerRadius="80"
                          Clicked="ImageButton_Clicked"
                          Grid.Row="0" VerticalOptions="End" HorizontalOptions="End"/>
-        
+
     </Grid>
 </ContentPage>
