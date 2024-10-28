@@ -13,13 +13,28 @@ namespace Ejercicio6UI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Botón que borra los campos del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddButton(object sender, EventArgs e)
         {
             nombre.Text = string.Empty;
             apellidos.Text = string.Empty;
             fechaNacimiento.Text = string.Empty;
+            labelNombre.Text = string.Empty;
+            labelApellidos.Text = string.Empty;
+            labelFechaNacimiento.Text = string.Empty;
+            labelExito.Text = string.Empty;
         }
 
+        /// <summary>
+        /// Botón que comprueba los campos, si fallan mostrará un error en un label,
+        /// y si son correctos mostrará un label con éxito
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveButton(object sender, EventArgs e)
         {           
             bool nombreRes = LabelNombre();
@@ -39,8 +54,12 @@ namespace Ejercicio6UI
 
         }
 
-
-
+        /// <summary>
+        /// Botón que comprueba los campos y muestra una ventana emergente cuando se pulsa para aceptar o
+        /// cancelar el borrado del usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void DeleteButton(object sender, EventArgs e)
         {
             bool nombreRes = LabelNombre();
@@ -67,6 +86,10 @@ namespace Ejercicio6UI
             }
         }
 
+        /// <summary>
+        /// Función que compruba si los dias y meses introducidos son correctos
+        /// </summary>
+        /// <returns></returns>
         private bool ComprobarFecha()
         {
             bool res = false;
@@ -174,11 +197,20 @@ namespace Ejercicio6UI
             return res;
         }
 
+        /// <summary>
+        /// Función que comprueba si un año es bisiesto
+        /// </summary>
+        /// <param name="year">Año de la fecha de nacimiento</param>
+        /// <returns>Devuelve si es un año bisiesto o no</returns>
         public bool EsBisiesto(int year)
         {
             return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
         }
 
+        /// <summary>
+        /// Comprueba que el campo nombre está lleno
+        /// </summary>
+        /// <returns>Devuelve si el campo está relleno o no</returns>
         public bool LabelNombre()
         {
             bool res = false;
@@ -195,6 +227,10 @@ namespace Ejercicio6UI
             return res;
         }
 
+        /// <summary>
+        /// Comprueba que el campo apellidos está lleno
+        /// </summary>
+        /// <returns>Devuelve si el campo está relleno o no</returns>
         public bool LabelApellido()
         {
             bool res = false;
@@ -211,6 +247,10 @@ namespace Ejercicio6UI
             return res;
         }
 
+        /// <summary>
+        /// Comprueba que el campo fecha está lleno
+        /// </summary>
+        /// <returns>Devuelve si el campo está relleno o no</returns>
         public bool LabelFecha()
         {
             bool res = false;

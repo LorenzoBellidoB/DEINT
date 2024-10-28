@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ejercicio6UI.MainPage">
 
-    
-        <VerticalStackLayout
+    <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
         <Label x:Name="labelExito"></Label>
@@ -15,8 +14,6 @@
         <Entry x:Name="fechaNacimiento" Placeholder="dd/mm/aaaa"></Entry>
         <Label x:Name="labelFechaNacimiento"></Label>
 
-        
-            
         <HorizontalStackLayout Spacing="15">
             <ImageButton Source="plus.png"
                          Background="LawnGreen"
@@ -37,8 +34,6 @@
                          CornerRadius="80"
                          Clicked="DeleteButton"/>
         </HorizontalStackLayout>
-        
-    </VerticalStackLayout>
-    
 
+    </VerticalStackLayout>
 </ContentPage>
