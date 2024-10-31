@@ -1,0 +1,17 @@
+﻿@using ListadoPersonaENT
+@model List<ListadoPersonaENT.Persona>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Listado de Persona</h1>
+    <ul>
+    @foreach (Persona persona in Model)
+    {
+            <li>@persona.Nombre  @persona.Apellidos: @persona.Edad</li>
+    }
+    </ul>
+    
+</div>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListadoPersonaMaui.Views.MainPage">
+
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ScrollView Orientation="Horizontal" Grid.Row="0">
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <ImageButton Source="lapiz.png" 
+             BackgroundColor="IndianRed"
+             WidthRequest="30"
+             HeightRequest="30"
+             CornerRadius="80"
+             Clicked="ImageButton_Clicked" />
+                    <ImageButton Source="papelera.png" 
+             BackgroundColor="LightGreen"
+             WidthRequest="30"
+             HeightRequest="30"
+             CornerRadius="80"
+             Clicked="ImageButton_Clicked" />
+                </HorizontalStackLayout>
+
+                <ListView x:Name="PersonListView" ItemsSource="{Binding listado}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell>
+                            <TextCell.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="Nombre"/>
+                                    <Binding Path="Apellidos"/>
+                                </MultiBinding>
+                            </TextCell.Text>
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ImageButton Source="plus.png" 
+                         BackgroundColor="SteelBlue"
+                         WidthRequest="30"
+                         HeightRequest="30"
+                         CornerRadius="80"
+                         Clicked="ImageButton_Clicked"
+                         Grid.Row="0" VerticalOptions="End" HorizontalOptions="End"/>
+
+    </Grid>
+</ContentPage>
