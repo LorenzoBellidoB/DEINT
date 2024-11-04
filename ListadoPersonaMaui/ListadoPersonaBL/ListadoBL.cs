@@ -12,10 +12,25 @@ namespace ListadoPersonaBL
     {
         public static List<Persona> listadoPersonaBL()
         {
-            List<Persona> miListado = ListadoPersona.GetListadoCompleto();
-            //TODO Comprobar si es jueves y antes o no de las 13:30
-        
-            return miListado;
+            List<Persona> miListado;
+            List<Persona> completo = ListadoPersona.GetListadoCompleto();
+
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            {
+                if (DateTime.Now.Hour <= 13 && DateTime.Now.Minute == 30)
+                {
+                    miListado = completo.Take(5).ToList();
+                }
+                else
+                {
+                    miListado = completo.Skip(Math.Max(0, completo.Count - 5)).ToList();
+                }
+            }
+            else
+            {
+                miListado = completo;
+            }
+                return miListado;
         }
     }
 }

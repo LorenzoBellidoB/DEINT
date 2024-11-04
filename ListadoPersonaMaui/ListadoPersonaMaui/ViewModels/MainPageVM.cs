@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ListadoPersonaBL;
 
 namespace ListadoPersonaMaui.ViewModels
 {
@@ -15,7 +16,7 @@ namespace ListadoPersonaMaui.ViewModels
         public List<Persona> Listado
         {
             get {
-                listado = ListadoPersona.GetListadoCompleto();
+                listado = ListadoBL.listadoPersonaBL();
                 return listado; 
             }
         }
