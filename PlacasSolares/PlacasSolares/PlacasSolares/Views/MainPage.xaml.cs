@@ -1,4 +1,6 @@
-﻿namespace PlacasSolares
+﻿using PlacasSolares.Views;
+
+namespace PlacasSolares
 {
     public partial class MainPage : ContentPage
     {
@@ -9,7 +11,11 @@
             InitializeComponent();
         }
 
-        
+        private void BotonLogin(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Inicio());
+        }
+
     }
 
 }

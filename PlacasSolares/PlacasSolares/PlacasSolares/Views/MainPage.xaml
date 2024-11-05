@@ -3,27 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlacasSolares.MainPage">
 
+    <Grid Padding="20" BackgroundColor="#D4B273">
+        <Frame VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="#C89A5D" BorderColor="#0077FF" CornerRadius="10" Padding="20" HasShadow="True"
+              >
+            <StackLayout Spacing="15" WidthRequest="280">
 
-    <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="20" BackgroundColor="#D4B273">
-        <Frame BackgroundColor="#C89A5D" BorderColor="#0077FF" CornerRadius="10" Padding="20" HasShadow="True">
-            <StackLayout Spacing="15">
-
-                
                 <Image Source="solar.png" HeightRequest="80" HorizontalOptions="Center" />
 
-                
-                <Label Text="Usuario:" TextColor="Black" FontAttributes="Bold"/>
-                <Entry Placeholder="Nombre de usuario" BackgroundColor="#E1D1A4" TextColor="Black"/>
+                <Label Text="Usuario:"  TextColor="Black" FontAttributes="Bold"/>
+                <Entry x:Name="user"  Placeholder="Nombre de usuario" BackgroundColor="#E1D1A4" TextColor="Black"/>
 
-                
                 <Label Text="Contraseña:" TextColor="Black" FontAttributes="Bold"/>
                 <Entry Placeholder="Contraseña" IsPassword="True" BackgroundColor="#E1D1A4" TextColor="Black"/>
 
-                
                 <Label Text="¿Olvidaste tu contraseña?" FontSize="Micro" TextColor="Gray" HorizontalOptions="Start"/>
 
-                
-                <Button BackgroundColor="#E1D1A4" Text=" " WidthRequest="50" HeightRequest="50">
+                <Button BackgroundColor="#E1D1A4" Text=" " WidthRequest="50" HeightRequest="50" Clicked="BotonLogin">
                     <Button.ImageSource>
                         <FontImageSource FontFamily="FontAwesome" Size="24" Color="#70521F"/>
                     </Button.ImageSource>
