@@ -10,37 +10,37 @@
             <ColumnDefinition Width="8*" />
         </Grid.ColumnDefinitions>
 
-        
+
         <VerticalStackLayout Grid.Column="0" Padding="10" Spacing="20" BackgroundColor="#C89A5D">
             <Image Source="perfil.png" WidthRequest="80" HeightRequest="80" HorizontalOptions="Center" Margin="0,20,0,10"/>
-            <Button BackgroundColor="Transparent" Text="Inicio" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start">
+            <Button BackgroundColor="Transparent" Text="Inicio" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" Clicked="OnButtonInicio">
                 <Button.ImageSource>
                     <FontImageSource Glyph="🏠" Size="30" />
                 </Button.ImageSource>
             </Button>
-            <Button BackgroundColor="Transparent" Text="Informe" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start">
+            <Button BackgroundColor="Transparent" Text="Informe" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" Clicked="OnButtonInforme">
                 <Button.ImageSource>
                     <FontImageSource Glyph="📝" Size="30" />
                 </Button.ImageSource>
             </Button>
-            <Button BackgroundColor="Transparent" Text="Cámara" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start">
+            <Button BackgroundColor="Transparent" Text="Cámara" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" Clicked="OnButtonCamara">
                 <Button.ImageSource>
                     <FontImageSource Glyph="📷" Size="30" />
                 </Button.ImageSource>
             </Button>
-            <Button BackgroundColor="Transparent" Text="GPS" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start">
+            <Button BackgroundColor="Transparent" Text="GPS" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" Clicked="OnButtonGps">
                 <Button.ImageSource>
                     <FontImageSource Glyph="📍" Size="30" />
                 </Button.ImageSource>
             </Button>
-            <Button BackgroundColor="Transparent" Text="Salir" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start">
+            <Button BackgroundColor="Transparent" Text="Salir" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" >
                 <Button.ImageSource>
                     <FontImageSource Glyph="🚪" Size="30" />
                 </Button.ImageSource>
             </Button>
         </VerticalStackLayout>
 
-        
+
         <StackLayout Grid.Column="1" Padding="20" Spacing="10">
             <Label Text="Lunes 06 de Noviembre" FontSize="Medium" HorizontalOptions="Center" TextColor="White"/>
             <Label Text="Eduardo Arnesto Carbonero" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" />
