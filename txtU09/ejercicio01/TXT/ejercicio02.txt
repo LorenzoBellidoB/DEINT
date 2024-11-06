@@ -1,0 +1,19 @@
+﻿ENT
+	// Clase con las propiedades de una persona
+	ClsPersona:
+		+ int IdPersona{get}
+		+ string Nombre{get;set}
+		+ string Apellidos{ger;set}
+		+ boolean isCheck{get}
+		+ int IdDepartamento{get;set}
+
+DAL
+	+ int Id{get}
+	+ string Nombre{get;set}
+	+ static List<ClsPersona> ObtenerListadoDal()
+	+
+
+BL
+	+ static List<ClsPersona> ObtenerListadoBl()
+
+UI

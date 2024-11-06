@@ -1,0 +1,31 @@
+﻿ENT
+	// Clase con las propiedades de una persona
+	ClsPersona:
+		+ int IdPErsona{get}
+		+ string Nombre{get;set}
+		+ string Apellidos{get;set}
+		+ Date FechaNac{get;set}
+
+		
+
+DAL
+	//Clase que crea un listado de personas de tipo ClsPersona
+	ClsListadoPersonaDal:
+		- List<ClsPersona> listado 
+		+ static List<ClsPersona> ObtenerListadoDal()
+
+BL
+	// Clase que implementa las normas del sistema
+	ClsListadoPersonaBl:
+		- List<ClsPersona> listado
+		+ static List<ClsPersona> ObtenerListadoBl()
+
+UI
+	Models
+		// Persona con check que indica si es mayor de edad
+			ClsPersonaConCheck : ClsPersona
+				+bool EsMayor{get}
+	ViewModels
+		// Viewmodel que envia a la vista un listado de personas
+		ListadoPersonaVM: ClsListadoPersonaBl
+			List<ClsPersona> listadoPersonaVM()

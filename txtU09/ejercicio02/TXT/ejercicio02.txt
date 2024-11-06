@@ -1,0 +1,14 @@
+﻿ENT
+	// Clase con las propiedades de una persona
+	ClsPersona:
+		+ string Nombre{get;set}
+		+ string Apellidos{ger;set}
+		+ boolean isCheck{get}
+
+DAL
+
+
+BL
+
+
+UI
