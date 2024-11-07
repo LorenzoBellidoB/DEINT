@@ -1,0 +1,31 @@
+﻿ENT
+	// Clase con las propiedades de una marca
+	ClsMarca:
+		+ int Id
+		+ string Nombre
+
+	// Clase con las propiedades de un modelo
+	ClsModelo:
+		+ int Id
+		+ string Nombre
+		+ int IdMarca
+
+DAL
+	ClsListadoMarcas:
+		// Método que devuelve la lista de marcas
+		+ static List<ClsMarca> ObtenerListadoMarcasDal()
+		// Método que devuelve la lista de modelos
+		+ static List<ClsModelo> ObtenerListadoModeloDal(int idMarca)
+
+BL
+	ClsListadoCochesBl:
+		// Método que devuelve la lista de marcas segun las reglas del sistema
+		+ static List<ClsMarca> ObtenerListadoMarcasBl()
+		// Método que devuelve la lista de modelos segun las normas del sistemas
+		+ static List<ClsModelo> ObtenerListadoModeloBl(int idMarca)
+
+UI
+	ViewModels
+		ListadoMarcasModeloVM: ClsListadoCochesBl
+			List<ClsMarca> ListadoMarcas {get;set}
+			List<ClsMarca> ListadoCoches {get;set}

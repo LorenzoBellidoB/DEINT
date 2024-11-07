@@ -1,0 +1,32 @@
+﻿ENT
+	// Clase con las propiedades del tiempo
+	ClsTiempo:
+		+ string DiaSemana{get; set}
+		+ string Temperatura{get; set}
+		+ string Tiempo{get;set}
+		+ string Detalles{get;set}
+
+DAL
+	ClsListadoDiasDal:
+		// Método que devuelve el dia de hoy
+		+ static ClsTiempo ObtenerDiaActualDal()
+		// Método que devuelve el listado con los dias 6 dias restantes
+		+ static List<ClsTiempo> ObtenerListadoTiempoDal()
+		// Método que devuelve el dia seleccionado
+		+ static ClsTiempo ObtenerDiaSeleccionadoDal()
+
+BL
+	ClsListadoDiasBl:
+		// Método que devuelve el dia de hoy segun las normas del sistema
+		+ static ClsTiempo ObtenerDiaActualBL()
+		// Método que devuelve el listado con los dias 6 dias restantes segun las normas del sistema
+		+ static List<ClsTiempo> ObtenerListadoTiempoBl()
+		// Método que devuelve el dia seleccionado segun las normas del sistema
+		+ static ClsTiempo ObtenerDiaSeleccionadoBL()
+
+UI
+	ViewModels
+		ListadoDiasVM: ClsTiempo
+			+ ClsTiempo DiaActual{get;set}
+			+ List<ClsTiempo> ListadoDias{get;set}
+			+ ClsTiempo DiaSeleccionado{get;set}

@@ -3,17 +3,32 @@
 	ClsPersona:
 		+ int IdPersona{get}
 		+ string Nombre{get;set}
-		+ string Apellidos{ger;set}
-		+ boolean isCheck{get}
+		+ string Apellidos{get;set}
 		+ int IdDepartamento{get;set}
 
+	// Clase con las propiedades de un departamento
+	ClsDepartamento:
+		+ int Id{get}
+		+ string Nombre{get;set}
+
 DAL
-	+ int Id{get}
-	+ string Nombre{get;set}
-	+ static List<ClsPersona> ObtenerListadoDal()
-	+
+	// Método que devuelve el listado de todas las personas
+	+ static List<ClsPersona> ObtenerListadoPersonaDal()
+	// Método que devuelve el listado de todos los departamentos
+	+ static List<ClsDepartamento> ObtenerListadoDepartamentoDal()
 
 BL
-	+ static List<ClsPersona> ObtenerListadoBl()
+	// Método que devuelve el listado de personas según las normas del sistema
+	+ static List<ClsPersona> ObtenerListadoPersonaBl()
+	// Método que devuelve el listado de departamentos según las normas del sistema
+	+ static List<ClsDepartamento> ObtenerListadoDepartamentoBl()
 
 UI
+	ViewModels
+	// Viewmodel que envia a la vista un listado de personas
+		ListadoDepartamentoPersonasVM: ClsListadoPersonaBl
+
+			+ int CountPersonas{get;set}
+
+			List<ClsDepartamentos> listadoDepartamentosVM()
+			List<ClsPersona> listadoPersonaVM(int idDepartamento)
