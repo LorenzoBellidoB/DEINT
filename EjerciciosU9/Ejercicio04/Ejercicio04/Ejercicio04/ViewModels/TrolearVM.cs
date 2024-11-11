@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio04.ViewModels
 {
-    public class TrolearVM
+    public class TrolearVM : INotifyPropertyChanged
     {
         #region Atributos
         private string nombre;
