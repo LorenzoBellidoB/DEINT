@@ -28,4 +28,5 @@ UI
 	ViewModels
 		ListadoMarcasModeloVM: ClsListadoCochesBl
 			List<ClsMarca> ListadoMarcas {get;set}
-			List<ClsMarca> ListadoCoches {get;set}
+			List<ClsModelo> ListadoCoches {get;set}
+			ClsMarca marcaSeleccionada

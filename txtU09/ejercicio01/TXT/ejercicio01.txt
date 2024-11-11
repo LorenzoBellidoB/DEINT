@@ -24,10 +24,10 @@ UI
 	Models
 		// Persona con check que indica si es mayor de edad
 			ClsPersonaConCheck : ClsPersona
-				+bool EsMayor{get}
+				+bool EsMayor{get esMayor()}
 
 				- bool esMayor()
 	ViewModels
 		// Viewmodel que envia a la vista un listado de personas
 		ListadoPersonaVM: ClsListadoPersonaBl
-			List<ClsPersona> listadoPersonaVM()
+			List<ClsPersonaConCheck> listadoPersonaVM()

@@ -1,7 +1,7 @@
 ﻿ENT
 	// Clase con las propiedades del tiempo
 	ClsTiempo:
-		+ string DiaSemana{get; set}
+		+ DateTime DiaSemana{get}
 		+ string Temperatura{get; set}
 		+ string Tiempo{get;set}
 		+ string Detalles{get;set}

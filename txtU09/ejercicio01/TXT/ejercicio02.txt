@@ -3,7 +3,6 @@
 	ClsPersona:
 		+ int IdPersona{get}
 		+ string Nombre{get;set}
-		+ string Apellidos{get;set}
 		+ int IdDepartamento{get;set}
 
 	// Clase con las propiedades de un departamento
@@ -13,15 +12,20 @@
 
 DAL
 	// Método que devuelve el listado de todas las personas
-	+ static List<ClsPersona> ObtenerListadoPersonaDal()
+	+ static List<ClsPersona> ObtenerListadoPersonaDal(int idDep)
 	// Método que devuelve el listado de todos los departamentos
 	+ static List<ClsDepartamento> ObtenerListadoDepartamentoDal()
+	// Método que devuelve la cantidad de personas
+	+ static long ObtenerCantidadDal(int idDep)
+
 
 BL
 	// Método que devuelve el listado de personas según las normas del sistema
-	+ static List<ClsPersona> ObtenerListadoPersonaBl()
+	+ static List<ClsPersona> ObtenerListadoPersonaBl(int idDep)
 	// Método que devuelve el listado de departamentos según las normas del sistema
 	+ static List<ClsDepartamento> ObtenerListadoDepartamentoBl()
+	// Método que devuelve la cantidad de personas según las normas del sistema
+	+ static int ObtenerCantidadBl()
 
 UI
 	ViewModels
@@ -32,3 +36,28 @@ UI
 
 			List<ClsDepartamentos> listadoDepartamentosVM()
 			List<ClsPersona> listadoPersonaVM(int idDepartamento)
+			ClsDepartamento departamentoSeleccionado
+
+ASP UI
+	ViewModels
+		ClsListadoEmpleadoDepartamentosVM:
+			+ List<ClsDepartamento> listadoDepartamentos{get}
+			+ List<ClsPersona> listadoPersonas{get}
+			+ int cantidadPersona
+
+			ClsListadoEmpleadoDepartamentosVM(){
+			listadoDepartamentos = ObtenerListadoDepartamentoBl()
+			}
+			ClsListadoEmpleadoDepartamentosVM(int id): base(){
+
+			listadoPersonas = ObtenerListadoPersonaBl(id)
+			cantidadPersona = ObtenerCantidadBl()
+			}
+
+	Controllers
+		ListaEmpleados
+			return View(ClsListadoEmpleadoDepartamentosVM)
+
+		[HttpPost]
+		ListaEmpleados(int idDepartamento)
+			return View(ClsListadoEmpleadoDepartamentosVM)
