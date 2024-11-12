@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodel="clr-namespace:Ejercicio05.ViewModels"
+             x:Class="Ejercicio05.MainPage">
+
+    <ContentPage.BindingContext>
+        <vmodel:ListadoPersonaVM></vmodel:ListadoPersonaVM>
+    </ContentPage.BindingContext>
+    <HorizontalStackLayout>
+    <VerticalStackLayout>
+        <ListView ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding PersonaSeleccionada}">
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <HorizontalStackLayout Spacing="5">
+                        <Image Source="{Binding Foto}" WidthRequest="50" HeightRequest="50"></Image>
+                                <Label Text="{Binding Nombre}"></Label>
+                                <Label Text="{Binding Apellido}"></Label>
+                    </HorizontalStackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="{Binding PersonaSeleccionada.Nombre}"></Label>
+            <Label Text="{Binding PersonaSeleccionada.Apellido}"></Label>
+            <Label Text="{Binding PersonaSeleccionada.Direccion}"></Label>
+            <Label Text="{Binding PersonaSeleccionada.Telefono}"></Label>
+        </VerticalStackLayout>
+</HorizontalStackLayout>
+</ContentPage>
