@@ -12,12 +12,21 @@ namespace BL
     {
         private static List<ClsPersona> listadoPersonasBl = new List<ClsPersona>();
 
-
+        /// <summary>
+        /// Métosdo para obtener un listado de personas según las normas de la empresa
+        /// </summary>
+        /// <returns>Listado de personas</returns>
         public static List<ClsPersona> ObtenerListadoBl()
         {
-            listadoPersonasBl = ClsListadoPersonaDal.ObtenerListadoDal();
-
-            return listadoPersonasBl;
+            try
+            {
+                listadoPersonasBl = ClsListadoPersonaDal.ObtenerListadoDal();
+                
+            }catch(Exception e)
+            {
+                e.Message.ToString();
+            }
+                 return listadoPersonasBl;
         }
     }
 }

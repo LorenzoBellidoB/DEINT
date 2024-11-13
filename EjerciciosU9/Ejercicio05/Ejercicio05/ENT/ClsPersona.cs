@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ENT
 {
+    /// <summary>
+    /// Clase que guardará las propiedades de una persona
+    /// </summary>
     public class ClsPersona
     {
         #region Atributos

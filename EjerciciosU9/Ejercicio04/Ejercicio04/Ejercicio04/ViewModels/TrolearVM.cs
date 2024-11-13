@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Ejercicio04.ViewModels
 {
+    /// <summary>
+    /// ViewModel que mostrara el listado y una persona seleccionada
+    /// </summary>
     public class TrolearVM : INotifyPropertyChanged
     {
         #region Atributos
