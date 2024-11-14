@@ -64,6 +64,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\BL\BL.csproj" />
+	  <ProjectReference Include="..\EjercicioU10\EjercicioU10.csproj" />
 	  <ProjectReference Include="..\ENT\ENT.csproj" />
 	</ItemGroup>
 

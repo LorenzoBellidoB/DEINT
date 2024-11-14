@@ -7,41 +7,48 @@
     <ContentPage.BindingContext>
         <vmodel:ListadoPersonaVM></vmodel:ListadoPersonaVM>
     </ContentPage.BindingContext>
+    <HorizontalStackLayout>
+        <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Start">
+            <HorizontalStackLayout>
+            <Entry Text="{Binding TextoEntry}" Placeholder="Buscar"></Entry>
+                <Button ImageSource="plus.png"
+             BackgroundColor="LightGreen"
+             WidthRequest="40"
+             HeightRequest="40"
+             CornerRadius="80" 
+             Command="{Binding BuscarCommand}"/>
 
-    <Grid Padding="10">
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <ScrollView Orientation="Horizontal" Grid.Row="0">
-            <VerticalStackLayout>
-                <ImageButton Source="lupa.png" 
-             BackgroundColor="IndianRed"
-             WidthRequest="30"
-             HeightRequest="30"
-             CornerRadius="80"/>
-                   
-                <ListView x:Name="PersonListView" ItemsSource="{Binding Listado}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell>
-                                <TextCell.Text>
-                                    <MultiBinding StringFormat="{}{0} {1}">
-                                        <Binding Path="Nombre"/>
-                                        <Binding Path="Apellidos"/>
-                                    </MultiBinding>
-                                </TextCell.Text>
-                            </TextCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </VerticalStackLayout>
-        </ScrollView>
-        <ImageButton Source="papelera.png" 
-                         BackgroundColor="IndianRed"
-                         WidthRequest="30"
-                         HeightRequest="30"
-                         CornerRadius="80"
-                         Grid.Row="0" VerticalOptions="End" HorizontalOptions="End"/>
-
-    </Grid>
+            </HorizontalStackLayout>
+            <ListView ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding PersonaSeleccionada}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                <HorizontalStackLayout Spacing="5" WidthRequest="300">
+                                    <Border Stroke="Black" StrokeShape="Rectangle 50,50,50,50">
+                                        <Image Source="{Binding Foto}" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" ></Image>
+                                    </Border>
+                                    <Label Text="{Binding Nombre}"></Label>
+                                    <Label Text="{Binding Apellido}"></Label>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button ImageSource="papelera.png"
+                BackgroundColor="IndianRed"
+                WidthRequest="30"
+                HeightRequest="30"
+                CornerRadius="80" 
+                Command="{Binding EliminarCommand}"/>
+        </VerticalStackLayout>
+        <!--<VerticalStackLayout>
+            <Label Text="{Binding PersonaSeleccionada.Nombre}"></Label>
+            <Label Text="{Binding PersonaSeleccionada.Apellido}"></Label>
+            <Label Text="{Binding PersonaSeleccionada.Direccion}"></Label>
+            <Label Text="{Binding PersonaSeleccionada.Telefono}"></Label>
+            <Image Source="{Binding PersonaSeleccionada.Foto}" WidthRequest="50" HeightRequest="50"/>
+        </VerticalStackLayout>-->
+    </HorizontalStackLayout>
 </ContentPage>
