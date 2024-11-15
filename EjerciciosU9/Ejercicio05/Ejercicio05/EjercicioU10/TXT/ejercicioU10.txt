@@ -1,0 +1,64 @@
+﻿ENT
+	ClsPersona:
+		private string nombre
+		private string apellidos
+		private string foto
+		private string direccion
+		private string telefono
+
+		public string Nombre{get; set;}
+		public string Apellidos{get; set;}
+		public string Foto{get; set;}
+		public string Direccion{get; set;}
+		public string Telefono{get; set;}
+
+		public ClsPersonas(){}
+
+		public ClsPersonas(nombre,apellidos,foto,direccion,telefono){}
+
+DAL
+	ClsListadoPersonaDal:
+		private List<ClsPersona> listadoPersona
+
+		public static List<ClsPersona> ObtenerListadoDal()
+
+		public static List<ClsPersona> ObtenerListadoBusquedaDal()
+BL
+	ClsListadoPersonaBl:
+		private List<ClsPersona> listadoPersona
+
+		public static List<ClsPersona> ObtenerListadoBl()
+
+		public static List<ClsPersona> ObtenerListadoBusquedaBl()
+
+UI
+	ViewModels
+		ListadoPersonaVM:
+			private DelegateCommand eliminarCommand
+			private DelegateCommand buscarCommand
+			private string textoEntry
+			private ClsPersona personaSeleccionada
+			private ObservableCollection<ClsPersona> listaPersonas
+			private ObservableCollection<ClsPersona> listaPersonasFiltrado
+
+			public DelegateCommand EliminarCommand
+			{get;}
+			/// </summary>
+			public DelegateCommand BuscarCommand
+			{get;}
+
+			public string TextoEntry
+			{get;set;}
+
+			public ObservableCollection<ClsPersona> ListaPersonas
+			{get;}
+			public ClsPersona PersonaSeleccionada
+			{get;set;}
+
+			private async void EliminarCommand_Executed()
+
+			private bool EliminarCommand_CanExecute()
+
+			private async void BuscarCommand_Executed()
+
+			private bool BuscarCommand_CanExecute()

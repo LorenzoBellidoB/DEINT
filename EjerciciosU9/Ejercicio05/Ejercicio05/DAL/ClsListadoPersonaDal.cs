@@ -39,5 +39,19 @@ namespace DAL
             }
             return ListadoPersonasDal;
         }
+
+        public static List<ClsPersona> ObtenerListadoBusquedaDal(string busqueda)
+        {
+            List<ClsPersona> listaBusqueda = new List<ClsPersona>();
+            foreach (ClsPersona persona in ListadoPersonasDal)
+            {
+                if(persona.Nombre.Contains(busqueda) || persona.Apellido.Contains(busqueda))
+                {
+                    listaBusqueda.Add(persona);
+                    
+                }
+            }
+            return listaBusqueda;
+        }
     }
 }

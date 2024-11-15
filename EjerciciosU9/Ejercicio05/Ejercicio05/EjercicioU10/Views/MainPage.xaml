@@ -19,7 +19,7 @@
              Command="{Binding BuscarCommand}"/>
 
             </HorizontalStackLayout>
-            <ListView ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding PersonaSeleccionada}">
+            <ListView ItemsSource="{Binding ListaPersonasFiltrado}" SelectedItem="{Binding PersonaSeleccionada}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -28,6 +28,8 @@ namespace Ejerciciou10.ViewModels
         private ClsPersona personaSeleccionada;
         // Lista observable de personas
         private ObservableCollection<ClsPersona> listaPersonas;
+        // Lista observable de personas filtrado
+        private ObservableCollection<ClsPersona> listaPersonasFiltrado;
         #endregion
 
         #region Constructor
@@ -40,6 +42,8 @@ namespace Ejerciciou10.ViewModels
             {
                 // Inicializa la lista de personas obtenida del negocio
                 listaPersonas = new ObservableCollection<ClsPersona>(ClsListadoPersonaBl.ObtenerListadoBl());
+
+                listaPersonasFiltrado = listaPersonas;
                 // Inicializa los comandos
                 eliminarCommand = new DelegateCommand(EliminarCommand_Executed, EliminarCommand_CanExecute);
                 buscarCommand = new DelegateCommand(BuscarCommand_Executed, BuscarCommand_CanExecute);
@@ -100,16 +104,22 @@ namespace Ejerciciou10.ViewModels
         public string TextoEntry
         {
             get { return textoEntry; }
-            set { textoEntry = value; buscarCommand.RaiseCanExecuteChanged(); NotifyPropertyChanged("TextoEntry"); }
+            set { textoEntry = value;
+                if (string.IsNullOrEmpty(textoEntry))
+                {
+                    listaPersonasFiltrado = listaPersonas;
+                }
+                NotifyPropertyChanged("ListaPersonasFiltrado");
+                BuscarCommand.RaiseCanExecuteChanged(); }
         }
 
+
         /// <summary>
-        /// Lista observable de personas
+        /// Lista observable de personas Filtrado
         /// </summary>
-        public ObservableCollection<ClsPersona> ListaPersonas
+        public ObservableCollection<ClsPersona> ListaPersonasFiltrado
         {
-            get { return listaPersonas; }
-            set { listaPersonas = value; NotifyPropertyChanged("ListaPersonas"); }
+            get { return listaPersonasFiltrado; }
         }
 
         /// <summary>
@@ -147,6 +157,8 @@ namespace Ejerciciou10.ViewModels
             {
                 // Elimina la persona seleccionada de la lista
                 listaPersonas.Remove(personaSeleccionada);
+                listaPersonasFiltrado.Remove(personaSeleccionada);
+                personaSeleccionada = null;
             }
         }
 
@@ -172,7 +184,12 @@ namespace Ejerciciou10.ViewModels
         /// </summary>
         private async void BuscarCommand_Executed()
         {
-            // Implementación pendiente
+            
+            listaPersonasFiltrado = new ObservableCollection<ClsPersona>(ClsListadoPersonaBl.ObtenerListadoBusquedaBl(textoEntry));
+            
+                   
+            NotifyPropertyChanged("ListaPersonasFiltrado");
+            
         }
 
         /// <summary>
@@ -184,7 +201,7 @@ namespace Ejerciciou10.ViewModels
             bool sePuedeBuscar = true;
 
             // No se puede buscar si el texto de búsqueda está vacío
-            if (string.IsNullOrEmpty(TextoEntry))
+            if (string.IsNullOrEmpty(textoEntry))
             {
                 sePuedeBuscar = false;
             }

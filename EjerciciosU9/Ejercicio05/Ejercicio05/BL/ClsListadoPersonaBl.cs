@@ -28,5 +28,12 @@ namespace BL
             }
                  return listadoPersonasBl;
         }
+
+        public static List<ClsPersona> ObtenerListadoBusquedaBl(string busqueda)
+        {
+            return ClsListadoPersonaDal.ObtenerListadoBusquedaDal(busqueda);
+        }
     }
+
+    
 }
