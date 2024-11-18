@@ -1,7 +1,7 @@
 ﻿ENT
 	// Clase con las propiedades de una persona
 	ClsPersona:
-		+ int IdPErsona{get}
+		+ int IdPersona{get}
 		+ string Nombre{get;set}
 		+ string Apellidos{get;set}
 		+ Date FechaNac{get;set}
