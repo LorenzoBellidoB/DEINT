@@ -80,6 +80,36 @@ namespace ListadoPersonaDAL
             listado.Add(p8);
             listado.Add(p9);
             listado.Add(p10);
+            listado.Add(p1);
+            listado.Add(p2);
+            listado.Add(p3);
+            listado.Add(p4);
+            listado.Add(p5);
+            listado.Add(p6);
+            listado.Add(p7);
+            listado.Add(p8);
+            listado.Add(p9);
+            listado.Add(p10);
+            listado.Add(p1);
+            listado.Add(p2);
+            listado.Add(p3);
+            listado.Add(p4);
+            listado.Add(p5);
+            listado.Add(p6);
+            listado.Add(p7);
+            listado.Add(p8);
+            listado.Add(p9);
+            listado.Add(p10);
+            listado.Add(p1);
+            listado.Add(p2);
+            listado.Add(p3);
+            listado.Add(p4);
+            listado.Add(p5);
+            listado.Add(p6);
+            listado.Add(p7);
+            listado.Add(p8);
+            listado.Add(p9);
+            listado.Add(p10);
 
             return listado;
         }
