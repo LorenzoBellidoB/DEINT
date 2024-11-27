@@ -1,0 +1,79 @@
+﻿ENT
+	ClsMision
+		- int idMision
+		- string nombre
+		- int disicultad
+
+		+ int IdMision {get;}
+		+ string Nombre {get; set;}
+		+ int Dificultad {get; set}
+
+		+ ClsMision(int idMision, string nombre, int dificultad)
+
+	ClsCandidato
+		- int idCandidato
+		- string nombre
+		- string apellidos
+		- string direccion
+		- string telefono
+		- DateTime fechaNac
+		- double sueldo
+
+		+ int IdCandidato {get;}
+		+ string Nombre {get; set;}
+		+ string Apellidos {get; set;}
+		+ string Direccion {get; set;}
+		+ string Telefono {get; set;}
+		+ DateTime FechaNac {get; set;}
+		+ Double Sueldo {get; set;}
+
+		+ ClsCandidato(int idCandidato, string nombre, string apellidos, string direccion, string telefono, DateTime fechaNac, double sueldo)
+
+
+
+DAL
+	ClsListadosDal
+		- List<ClsMision> misiones 
+
+		- List<ClsCandidato> candidatos
+
+		+ static List<ClsMision> obtenerListadoMisionesDal()
+
+		+ static List<ClsCandidato> obtenerListadoCandidatosDal()
+
+		+ static ClsMision buscarMisionPorIdDal(int id)
+
+		+ static ClsCandidato buscarCandidatoPorIdDal(int id)
+
+BL 
+	ClsListadosBl
+			+ static List<ClsMision> obtenerListadoMisionesBl()
+
+			+ static List<ClsCandidato> obtenerListadoCandidatosBl()
+
+			+ static ClsMision buscarMisionPorIdBl(int id)
+
+			+ static ClsCandidato buscarCandidatoPorIdBl(int id)
+
+UI
+	Models:
+		ClsCandidatoEdad: ClsCandidato
+		 - int edad
+
+		 - static getEdad()
+
+	ViewModels:
+		ListadoMisionesCandidatosVM: INotify
+			List<ClsMisiones> ListadoMisiones {get;}
+			List<ClsCandidatosEdad> ListadoCandidatos {get;}
+			ClsMision misionSeleccionada
+			ClsCandidatoEdad candidatoSeleccionado
+			DelegateCommand SeleccionarCommand {get;}
+			DelegateCommand DetallesCommand {get;}
+
+		DetallesCandidatoVM: INotify
+			ClsCandiodatoEdad Candidato {get;}
+			DelegateCommand VolverCommand {get;}
+
+		Utils:
+			ClsCommand

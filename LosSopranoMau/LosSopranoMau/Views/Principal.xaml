@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodel="clr-namespace:LosSopranoMau.ViewModels"
+             x:Class="LosSopranoMau.Views.Principal"
+             Title="Principal">
+    <ContentPage.BindingContext>
+        <vmodel:ListadoMisionesCandidatosVM></vmodel:ListadoMisionesCandidatosVM>
+    </ContentPage.BindingContext>
+    
+    <AbsoluteLayout Padding="10">
+        <ScrollView>
+            <VerticalStackLayout>
+            <HorizontalStackLayout Spacing="5">
+                    <Picker ItemsSource="{Binding ListadoMisiones}" 
+                        SelectedItem="{Binding MisionSeleccionada}" 
+                        ItemDisplayBinding="{Binding Nombre}">
+                    </Picker>
+                </HorizontalStackLayout>
+                <ListView ItemsSource="{Binding ListadoCandidatosEdad}" SelectedItem="{Binding CandidatoSeleccionado} " >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <HorizontalStackLayout Spacing="5">
+                                    <Label Text="{Binding Nombre}"></Label>
+                                    <Label Text="{Binding Apellidos}"></Label>
+                                    <Label Text="{Binding Edad}"></Label>
+                                    <Label Text="{Binding Pais}"></Label>
+                                </HorizontalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Button Command="{Binding DetallesCommand}" AbsoluteLayout.LayoutBounds="0.99,0.80,100,50" AbsoluteLayout.LayoutFlags="PositionProportional" Text="Detalles"></Button>
+    </AbsoluteLayout>
+    
+</ContentPage>

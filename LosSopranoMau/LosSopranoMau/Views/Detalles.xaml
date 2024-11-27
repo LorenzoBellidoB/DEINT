@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodel="clr-namespace:LosSopranoMau.ViewModels"
+             x:Class="LosSopranoMau.Views.Detalles"
+             Title="Detalles">
+    <ContentPage.BindingContext>
+        <vmodel:DetallesVM></vmodel:DetallesVM>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout Padding="10">
+        <Label Text="{Binding CandidatoDetalles.Id}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Nombre}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Apellidos}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Edad}"></Label>
+        <Label Text="{Binding CandidatoDetalles.FechaNac}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Direccion}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Pais}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Telefono}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Sueldo}"></Label>
+    </VerticalStackLayout>
+</ContentPage>
