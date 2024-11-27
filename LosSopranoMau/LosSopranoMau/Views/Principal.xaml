@@ -9,7 +9,7 @@
     </ContentPage.BindingContext>
     
     <AbsoluteLayout Padding="10">
-        <ScrollView>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <VerticalStackLayout>
             <HorizontalStackLayout Spacing="5">
                     <Picker ItemsSource="{Binding ListadoMisiones}" 
