@@ -48,7 +48,6 @@ namespace LosSopranoMau.ViewModels
                     ClsCandidatoEdad candidatoEdad = new ClsCandidatoEdad(cand);
                     listadoCandidatosEdad.Add(candidatoEdad);
                 }
-                NotifyPropertyChanged("MisionSeleccionada");
                 NotifyPropertyChanged("ListadoCandidatosEdad");
             }
         }
