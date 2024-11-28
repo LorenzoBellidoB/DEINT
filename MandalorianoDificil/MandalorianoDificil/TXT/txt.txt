@@ -1,0 +1,87 @@
+﻿ENT
+	CLsMision:
+		- int idMision
+		- string nombre
+		- string descripcion
+		- double recompensa
+
+		+ int IdMision {get;}
+		+ string Nombre {get; set;}
+		+ string Descricion {get; set;}
+		+ double Recompensa {get; set;}
+
+		+ ClsMision(int idMision, string nombre, string descripcion, double recompensa){}
+
+DAL
+	ClsListadoMisionesDal:
+		- static List<ClsMision> listadoMisiones;
+
+		+ static List<ClsMision> obtenerListadoMisionesDal()
+
+		+ static ClsMision obtenerMisionPorIdBl(int id)
+
+
+BL
+	ClsListadoMisionesBl:
+		// A partir de las 19:00 solo se mostraran las recompensas superiores 10000
+		+ static List<ClsMision> obtenerListadoMisionesDal()
+
+		+ static ClsMision obtenerMisionPorIdBl(int id)
+
+UI
+	Models
+		ClsMisionCompletada: ClsMision
+			- DateTime fechaFinalizada
+
+			+ DateTime FechaFinalizada {get;}
+
+			+ ClsMisionCompletada(ClsMision mision)
+			{
+				insertarFecha()
+			}
+
+			- void insertarFechaCompletada()
+
+	ViewModels
+		ListadoMisionesVM: INotify
+			- List<ClsMision> listadoMisiones;
+
+			- ClsMision misionSeleccionada
+
+			- DelegateCommand completarCommand
+
+			+ List<ClsMision> ListadoMisiones{get;}
+
+			+ ClsMision MisionSeleccionada {get; set;}
+
+			+ DelegateCommand CompletarCommand {get;}
+
+			+ ListadoMisionesVM()
+			{
+				listadoMisiones
+				completarCommand
+
+			}
+
+		[Query "MisionCompletada", MisionSeleccionada]
+		ListadoMisionesCompletadasVM
+			- List<ClsMisionCompletada> listadoMisionesCompletadas
+
+			- ClsMision misionCompletada
+
+			- DelegateCommand volverCommand
+
+			+ List<ClsMisionCompletada> ListadoMisionCompletadas {get;}
+
+			+ ClsMision MisionCompletada {get;}
+
+			+ DelegateCommand VolverCommand {get;}
+
+			+ ListadoMisionsCompletadasVM(ClsMision misionCompletada)
+			{
+				listadoMisionesCompletadas
+				volverCommand
+			}
+
+		Utils:
+			DelegateCommand

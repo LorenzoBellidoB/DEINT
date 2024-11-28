@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodel="clr-namespace:MandalorianoDificil.ViewModels"
+             x:Class="MandalorianoDificil.Views.ListadoMisionesCompletadas"
+             Title="Misiones Completadas">
+
+    <ContentPage.BindingContext>
+        <vmodel:ListadoMisionesCompletadasVM />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <ListView ItemsSource="{Binding ListadoMisionesCompletadas}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="LightGray" CornerRadius="5" Padding="10" Margin="5">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding IdMision}" FontAttributes="Bold" />
+                                <Label Text="{Binding Nombre}" FontSize="Medium" />
+                                <Label Text="{Binding Descripcion}" FontSize="Small" />
+                                <Label Text="{Binding Recompensa}" FontSize="Small" TextColor="Green" />
+                                <Label Text="{Binding FechaFinalizada}" FontSize="Small" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Volver" Command="{Binding VolverCommand}" BackgroundColor="LightBlue" TextColor="White" CornerRadius="10" />
+
+    </VerticalStackLayout>
+</ContentPage>
