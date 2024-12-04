@@ -1,0 +1,61 @@
+ENT
+	ClsCandidato:
+		- int id
+
+		- string nombre
+
+		+ int Id {get; set;}
+
+		+ int Nombre {get; set;}
+
+DAL
+	ClsListadoDal:
+		- static List<ClsCandidato> listadoCandidatos
+
+		+ static List<ClsCandidato> obternerCandiadatos()
+
+BL
+	ClsListadoBl:
+		+ static List<ClsCandidato> obtenerCandidatosAleatoriosRonda(num rondas)
+
+		+ static List<ClsCandidato> obtenerCandidatosParaPregunta(int opciones, int idFoto)
+
+UI
+	Models
+		ClsCandidatoConFoto: ClsCandidato
+			- string foto
+
+			+ string Foto{get {return asignarFoto()};}
+
+			- string asignarFoto()
+
+		ClsPregunta:
+			- ClsCandidatoConFoto candidatoAdivinar
+
+			- List<ClsCandidato> opcionesCandidato
+
+			- ClsCandidato candidatoSeleccionado
+
+			- Boolean acertado
+
+			+ ClsCandidatoConFoto CandidatoAdivinar {get;}
+
+			+ List<ClsCandidato> OpcionesCandidato {get;}
+
+			+ ClsCandidato CandidatoSeleccionado {get; set //Comprobar si la persona es correcta;}
+
+			+ Boolean Acertado{get;}
+
+	ViewModels:
+		JuegoVM:
+		- List<ClsPregunta> listaPreguntas
+
+		- ClsPregunta preguntaActual
+
+		- ClsCandidato candidatoSeleccionado
+		
+		+ Int Aciertos{get;}
+
+		+ Int Fallos{get;}
+
+		+ ClsCandidato {get{return candidatoSeleccionado}; set{value = preguntaActual.CandidatoSeleccionado}}
