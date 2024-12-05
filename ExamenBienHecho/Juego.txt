@@ -16,9 +16,9 @@ DAL
 
 BL
 	ClsListadoBl:
-		+ static List<ClsCandidato> obtenerCandidatosAleatoriosRonda(num rondas)
+		+ static List<ClsCandidato> obtenerCandidatosAleatoriosRondas(num rondas)
 
-		+ static List<ClsCandidato> obtenerCandidatosParaPregunta(int opciones, int idFoto)
+		+ static List<ClsCandidato> obtenerCandidatosParaPregunta(int opciones, int idCandidato)
 
 UI
 	Models
@@ -53,9 +53,11 @@ UI
 		- ClsPregunta preguntaActual
 
 		- ClsCandidato candidatoSeleccionado
+
+		+ ClsPregunta PreguntaActual{get;}
 		
 		+ Int Aciertos{get;}
 
 		+ Int Fallos{get;}
 
-		+ ClsCandidato {get{return candidatoSeleccionado}; set{value = preguntaActual.CandidatoSeleccionado}}
+		+ ClsCandidatov CandidatoSeleccionado {get{return candidatoSeleccionado}; set{preguntaActual.CandidatoSeleccionado = value}}
