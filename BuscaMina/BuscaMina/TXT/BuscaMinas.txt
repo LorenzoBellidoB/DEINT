@@ -1,0 +1,44 @@
+Modelo
+	ClsCasilla:
+		- bool bomba
+		
+		- bool revelado
+
+		- string imagen
+
+		+ bool Bomba{get;set;}
+
+		+ bool Revelado{get;set (cambiar la imagen)}
+
+		+ string Imagen{get}
+
+BL
+	ClsListadoBl:
+	+ static List<ClsCasilla> listadoCasillasBl(int dificultad)
+
+UI
+	ViewModels:
+		BuscaMinasVM:
+			- List<ClsCasilla> listadoCasillas
+
+			- ClsCasilla casillaSeleccionada
+
+			- int bomba
+
+			- int acierto
+
+			- int dificultad
+
+			- int tiradas
+
+			+ List<ClsCasilla> ListadoCasillas{get}
+
+			+ ClsCasilla CasillaSeleccionada {get; set;}
+
+			+ int Bomba {get; set;}
+
+			+ int Acierto {get; set;}
+
+			+ int Dificultad {get; set;}
+
+			+ int Tiradas {get; set;}
