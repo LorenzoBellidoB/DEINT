@@ -16,6 +16,8 @@ BL
 	ClsListadoBl:
 	+ static List<ClsCasilla> listadoCasillasBl(int dificultad)
 
+	- static List<ClsCasilla> addCasillas(int num, int bomba)
+
 UI
 	ViewModels:
 		BuscaMinasVM:
