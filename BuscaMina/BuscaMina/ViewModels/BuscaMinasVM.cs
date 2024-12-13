@@ -33,9 +33,10 @@ namespace BuscaMina.ViewModels
             set { 
                 casillaSeleccionada = value;
                 comprobarPartida();
-                if(tiradas == 0)
+                // Arreglar cuando sea
+                if(tiradas == 0 && bombas < ClsListadoBl.maxBombasBl(dificultad))
                 {
-                    if(bombas < ClsListadoBl.maxBombasBl(dificultad))
+                    if(acierto < ClsListadoBl.maxBombasBl(dificultad))
                     {
                         Application.Current.MainPage.DisplayAlert("Ganador", "Has ganado", "Aceptar");
                     }
