@@ -17,38 +17,86 @@ namespace BL
         public static List<ClsCasilla> listadoCasillasBl(int dificultad)
         {
             List<ClsCasilla> lista = new List<ClsCasilla>();
+            int bombas = maxBombasBl(dificultad);
             switch (dificultad)
             {
-                // Listado con 16 casillas con 5 bombas
                 case 1:
-                    lista = ClsListadoBl.addCasillas(9, 4);
+                    lista = ClsListadoBl.addCasillas(9, bombas);
                     break;
+                case 2:
+                    lista = ClsListadoBl.addCasillas(16, bombas);
+                    break;
+                case 3:
+                    lista = ClsListadoBl.addCasillas(25, bombas);
+                    break;
+
             }
             return lista;
         }
 
+        /// <summary>
+        /// Devuelve el numero de tiradas segun la dificultad selecionada
+        /// </summary>
+        /// <param name="dificultad">Entero que representa el nivel de dificultad</param>
+        /// <returns>Numero de tiradas</returns>
         public static int numTiradasBl(int dificultad)
         {
             int tiradas = 0;
             switch (dificultad)
             {
                 case 1:
-                    tiradas = 5+1;
+                    tiradas = 7;
+                    break;
+                case 2:
+                    tiradas = 10;
+                    break;
+                case 3: tiradas = 15;
                     break;
             }
             return tiradas;
         }
 
+        /// <summary>
+        /// Devuelve el numero de bombas segun la dificultad selecionada 
+        /// </summary>
+        /// <param name="dificultad">Entero que representa el nivel de dificultad</param>
+        /// <returns>Maximo de bombas</returns>
         public static int maxBombasBl(int dificultad)
         {
             int bombas = 0;
             switch (dificultad)
             {
                 case 1:
-                    bombas = 4;
+                    bombas = 3;
+                    break;
+                case 2:
+                    bombas = 6;
+                    break;
+                case 3:
+                    bombas = 10;
                     break;
             }
             return bombas;
+        }
+
+        /// <summary>
+        /// Devuelve el numero de aciertos segun la dificultad selecionada
+        /// </summary>
+        /// <param name="dificultad">Entero que representa el nivel de dificultad</param>
+        /// <returns>Maximo de aciertos</returns>
+        public static int maxAciertosBl(int dificultad)
+        {
+            int aciertos = 0;
+            switch (dificultad)
+            {
+                case 1:
+                    aciertos = 5;
+                    break;
+                case 2:
+                    aciertos = 7;
+                    break;
+            }
+            return aciertos;
         }
 
         /// <summary>

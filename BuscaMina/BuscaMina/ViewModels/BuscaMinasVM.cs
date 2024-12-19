@@ -23,7 +23,7 @@ namespace BuscaMina.ViewModels
 
         private static int dificultad = 1;
 
-        private int tiradas = ClsListadoBl.numTiradasBl(dificultad);
+        private int tiradas = 0;
         #endregion
 
         #region Propiedades
@@ -33,17 +33,14 @@ namespace BuscaMina.ViewModels
             set { 
                 casillaSeleccionada = value;
                 comprobarPartida();
-                // Arreglar cuando sea
-                if(tiradas == 0 && bombas < ClsListadoBl.maxBombasBl(dificultad))
+                if (acierto == ClsListadoBl.maxAciertosBl(dificultad) - bombas && tiradas != 0)
                 {
-                    if(acierto < ClsListadoBl.maxBombasBl(dificultad))
-                    {
-                        Application.Current.MainPage.DisplayAlert("Ganador", "Has ganado", "Aceptar");
-                    }
-                    else
-                    {
-                        Application.Current.MainPage.DisplayAlert("Perdedor", "Has perdido", "Aceptar");
-                    }
+                    dificultad++;
+                    refresh();
+                }
+                else if (tiradas == 0 || ClsListadoBl.maxBombasBl(dificultad) == bombas)
+                {
+                    refresh();
                 }
             } 
         }
@@ -71,6 +68,7 @@ namespace BuscaMina.ViewModels
         public BuscaMinasVM()
         {
             listadoCasillas = ClsListadoBl.listadoCasillasBl(dificultad);
+            tiradas = ClsListadoBl.numTiradasBl(dificultad);
         }
         #endregion
 
@@ -93,6 +91,31 @@ namespace BuscaMina.ViewModels
             NotifyPropertyChanged("Acierto");
             NotifyPropertyChanged("Tiradas");
         }
+
+        #region Metodos
+        public void refresh()
+        {
+            listadoCasillas = ClsListadoBl.listadoCasillasBl(dificultad);
+
+            casillaSeleccionada = null;
+
+            tiradas = ClsListadoBl.numTiradasBl(dificultad);
+
+            bombas = 0;
+
+            acierto = 0;
+
+            double tablero = listadoCasillas.Count;
+
+            NotifyPropertyChanged("ListadoCasillas");
+            NotifyPropertyChanged("CasillaSeleccionada");
+            NotifyPropertyChanged("Bombas");
+            NotifyPropertyChanged("Acierto");
+            NotifyPropertyChanged("Tiradas");
+            NotifyPropertyChanged("Tablero");
+
+        }
+        #endregion
 
         #region Notify
         public event PropertyChangedEventHandler PropertyChanged;
