@@ -1,4 +1,5 @@
-﻿using EjercicioU10.ViewModels.Utilidades;
+﻿using DAL;
+using EjercicioU10.ViewModels.Utilidades;
 using ENT;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,17 @@ namespace PokeApiService.ViewModels
 {
     public class PokemonsVM: INotifyPropertyChanged
     {
+        #region Atributos
         private List<ClsPokemon> listadoPokemons;
 
         private DelegateCommand mostrarListado;
 
+        private int ultimoId = 0;
+
+        private int limite = 20;
+        #endregion
+
+        #region Properties
         public List<ClsPokemon> ListadoPokemons
         {
             get
@@ -31,16 +39,36 @@ namespace PokeApiService.ViewModels
         {
             get { return mostrarListado; }
         }
+        #endregion
 
+        #region Constructores
         public PokemonsVM()
         {
-            ListadoPokemons = new List<ClsPokemon>();
-            mostrarListado = new DelegateCommand(MostrarListado);
+            listadoPokemons = new List<ClsPokemon>();
+            mostrarListado = new DelegateCommand(MostrarListadoExecute, CanMostrarListado);
         }
-
+        #endregion
         #region Commands
 
+        private async void MostrarListadoExecute()
+        {
+            try
+            {
+                listadoPokemons = await Services.getPokemons(ultimoId, limite);
+            }catch (Exception ex)
+            {
 
+            }
+            finally
+            {
+                NotifyPropertyChanged("ListadoPokemons");
+            }
+        }
+
+        private bool CanMostrarListado()
+        {
+            return true;
+        }
 
         #endregion
 

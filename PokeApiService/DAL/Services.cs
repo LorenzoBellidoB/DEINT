@@ -7,7 +7,7 @@ namespace DAL
     public class Services
     {
 
-        public async Task<List<ClsPokemon>> getPokemons(int ultimoId, int limite)
+        public static async Task<List<ClsPokemon>> getPokemons(int ultimoId, int limite)
 
         {
 
