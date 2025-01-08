@@ -6,10 +6,8 @@ namespace DAL
 {
     public class Services
     {
-        private int ultimoId = 0;
 
-        private int limite = 20;
-        public async Task<List<ClsPokemon>> getPokemons()
+        public async Task<List<ClsPokemon>> getPokemons(int ultimoId, int limite)
 
         {
 
@@ -50,7 +48,6 @@ namespace DAL
                     //Es el paquete Nuget de Newtonsoft
 
                     listadoPokemon = JsonConvert.DeserializeObject<List<ClsPokemon>>(textoJsonRespuesta);
-                    ultimoId += limite;
                 }
 
             }
