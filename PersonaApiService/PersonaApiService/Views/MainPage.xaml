@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodel="clr-namespace:PersonaApiService.ViewModels"
+             x:Class="PersonaApiService.MainPage">
+
+    <ContentPage.BindingContext>
+        <vmodel:PersonasVM></vmodel:PersonasVM>
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <ListView Grid.Row="0" ItemsSource="{Binding ListadoPersonas}" SelectedItem="{Binding PersonaSeleccionada}" BackgroundColor="White"
+              Margin="10" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White"
+                           HasShadow="True">
+                                <VerticalStackLayout Spacing="5">
+                                    <Label Text="{Binding Nombre}" FontSize="Medium" FontAttributes="Bold" TextColor="#333" />
+                                    <Label Text="{Binding Direccion}" FontSize="Small" TextColor="#666" />
+                                </VerticalStackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <Button Grid.Row="1" Text="Mostrar Personas" Command="{Binding MostrarPersonas}" 
+            BackgroundColor="#6200ee" TextColor="White" CornerRadius="25"
+            HeightRequest="50" Margin="20" />
+        <Button Grid.Row="2" Text="Eliminar Personas" Command="{Binding EliminarPersona}" 
+    BackgroundColor="Red" TextColor="White" CornerRadius="25"
+    HeightRequest="50" Margin="20" />
+    </Grid>
+
+</ContentPage>
