@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace PersonaApiService.ViewModels
         public List<ClsPersona> ListadoPersonas { get { return listadoPersonas; } set { listadoPersonas = value; } }
         public DelegateCommand MostrarPersonas { get{return mostrarPersonas; } set { mostrarPersonas = value; } }
         public DelegateCommand EliminarPersona { get { return eliminarPersona; } set { eliminarPersona = value; } }
-        public ClsPersona PersonaSeleccionada { get { return personaSeleccionada; } set { personaSeleccionada = value; NotifyPropertyChanged("PersonaSeleccionada");} }
+        public ClsPersona PersonaSeleccionada { get { return personaSeleccionada; } set { personaSeleccionada = value; EliminarPersona.RaiseCanExecuteChanged(); NotifyPropertyChanged("PersonaSeleccionada");} }
         #endregion
 
         #region Constructor
@@ -54,22 +55,36 @@ namespace PersonaApiService.ViewModels
             finally
             {
                 NotifyPropertyChanged("ListadoPersonas");
-
+                
             }
         }
 
         private async void EliminarPersonaExecute()
         {
-            int id = personaSeleccionada.Id;
-            int row = 0;
+            bool confirmar = false;
+            confirmar = await App.Current.MainPage.DisplayAlert("Confirmación", $"¿Seguro que quieres borrar a {personaSeleccionada.Nombre} {personaSeleccionada.Apellidos}?", "Si", "No");
+            if (confirmar)
+            {
             try
             {
-                await Services.eliminarPersona(id);
+                var status = await Services.eliminarPersona(personaSeleccionada.Id);
+                if(status == HttpStatusCode.OK)
+                    {
+                        await App.Current.MainPage.DisplayAlert("Información", "Persona eliminada", "Aceptar");
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Información", "Error al eliminar la persona", "Aceptar");
+                    }
+                
                 MostrarListadoExecute();
             }
             catch (Exception ex)
             {
+
             }
+            }
+            
         }
 
         private bool CanEliminarPersonaExecute()
