@@ -8,13 +8,21 @@
     <ContentPage.BindingContext>
         <vmodel:PokemonsVM></vmodel:PokemonsVM>
     </ContentPage.BindingContext>
-
+    
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
+        <ScrollView>
+        <VerticalStackLayout Grid.Row="0">
+            
+        
+        <HorizontalStackLayout  Spacing="10">
+            <Entry Placeholder="Primer Id" Keyboard="Numeric" Text="{Binding PrimerId}"></Entry>
+            <Entry Placeholder="Cantidad" Keyboard="Numeric" Text="{Binding Limite}"></Entry>
+        </HorizontalStackLayout>
         <ListView Grid.Row="0" ItemsSource="{Binding ListadoPokemons}" BackgroundColor="White"
                   Margin="10" SeparatorVisibility="None">
             <ListView.ItemTemplate>
@@ -23,15 +31,16 @@
                         <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5" BackgroundColor="White"
                                HasShadow="True">
                             <VerticalStackLayout Spacing="5">
-                                <Label Text="{Binding name}" FontSize="Medium" FontAttributes="Bold" TextColor="#333" />
-                                <Label Text="{Binding url}" FontSize="Small" TextColor="#666" />
+                                <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold" TextColor="#333" />
+                                <Label Text="{Binding Url}" FontSize="Small" TextColor="#666" />
                             </VerticalStackLayout>
                         </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        </VerticalStackLayout>
+        </ScrollView>
         <Button Grid.Row="1" Text="Mostrar Pokemons" Command="{Binding MostrarListado}" 
                 BackgroundColor="#6200ee" TextColor="White" CornerRadius="25"
                 HeightRequest="50" Margin="20" />

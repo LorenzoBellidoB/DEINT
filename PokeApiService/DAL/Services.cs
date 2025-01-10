@@ -8,7 +8,7 @@ namespace DAL
     public class Services
     {
 
-        public static async Task<List<ClsPokemon>> getPokemons(int ultimoId, int limite)
+        public static async Task<List<ClsPokemon>> getPokemons(int primerId, int limite)
 
         {
 
@@ -16,7 +16,7 @@ namespace DAL
 
             string miCadenaUrl = ClsUriBase.getMiCadenaUri();
 
-            Uri miUri = new Uri($"{miCadenaUrl}?offset={ultimoId}&limit={limite}");
+            Uri miUri = new Uri($"{miCadenaUrl}?offset={primerId}&limit={limite}");
 
             List<ClsPokemon> listadoPokemon = new List<ClsPokemon>();
 

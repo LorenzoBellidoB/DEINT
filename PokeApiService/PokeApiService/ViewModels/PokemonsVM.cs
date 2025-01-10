@@ -18,9 +18,9 @@ namespace PokeApiService.ViewModels
 
         private DelegateCommand mostrarListado;
 
-        private int ultimoId = 0;
+        private int primerId = 0;
 
-        private int limite = 20;
+        private int limite = 0;
         #endregion
 
         #region Properties
@@ -30,14 +30,23 @@ namespace PokeApiService.ViewModels
             {
                 return listadoPokemons;
             }
-            set {
-                listadoPokemons = value;
-            }
         }
 
         public DelegateCommand MostrarListado
         {
             get { return mostrarListado; }
+        }
+
+        public int PrimerId { 
+            get { return primerId; } 
+            set { primerId = value; NotifyPropertyChanged("PrimerId"); }
+        }
+
+        public int Limite
+        {
+            get { return limite; }
+            set { limite = value;  NotifyPropertyChanged("Limite");
+            }
         }
         #endregion
 
@@ -55,8 +64,10 @@ namespace PokeApiService.ViewModels
         {
             try
             {
-                listadoPokemons = await Services.getPokemons(ultimoId, limite);
-                limite += 20;
+                primerId -= 1;
+
+                listadoPokemons = await Services.getPokemons(primerId, limite);
+                               
 
             }catch (Exception ex)
             {
@@ -65,6 +76,7 @@ namespace PokeApiService.ViewModels
             finally
             {
                 NotifyPropertyChanged("ListadoPokemons");
+
             }
         }
 
