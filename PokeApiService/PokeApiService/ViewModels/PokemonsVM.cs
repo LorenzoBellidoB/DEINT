@@ -48,6 +48,7 @@ namespace PokeApiService.ViewModels
             mostrarListado = new DelegateCommand(MostrarListadoExecute, CanMostrarListado);
         }
         #endregion
+
         #region Commands
 
         private async void MostrarListadoExecute()
@@ -55,6 +56,8 @@ namespace PokeApiService.ViewModels
             try
             {
                 listadoPokemons = await Services.getPokemons(ultimoId, limite);
+                limite += 20;
+
             }catch (Exception ex)
             {
 

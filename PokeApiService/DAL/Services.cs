@@ -1,4 +1,5 @@
 ﻿using ENT;
+using DTO;
 using Newtonsoft.Json;
 using static System.Net.WebRequestMethods;
 
@@ -15,7 +16,7 @@ namespace DAL
 
             string miCadenaUrl = ClsUriBase.getMiCadenaUri();
 
-            Uri miUri = new Uri($"{miCadenaUrl}?offset={ultimoId}&limit=20");
+            Uri miUri = new Uri($"{miCadenaUrl}?offset={ultimoId}&limit={limite}");
 
             List<ClsPokemon> listadoPokemon = new List<ClsPokemon>();
 
@@ -47,7 +48,9 @@ namespace DAL
 
                     //Es el paquete Nuget de Newtonsoft
 
-                    listadoPokemon = JsonConvert.DeserializeObject<List<ClsPokemon>>(textoJsonRespuesta);
+                    var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(textoJsonRespuesta);
+
+                    listadoPokemon = apiResponse.Results;
                 }
 
             }

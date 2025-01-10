@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeApiService", "PokeApiService\PokeApiService.csproj", "{7857F87A-72D0-46F8-836E-1B37707B3BEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeApiService", "PokeApiService\PokeApiService.csproj", "{7857F87A-72D0-46F8-836E-1B37707B3BEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4ADA3928-787B-4774-8082-41024D45C3EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{4ADA3928-787B-4774-8082-41024D45C3EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENT", "ENT\ENT.csproj", "{9071B3CF-60E6-4C15-919E-87C3C4AFC9D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENT", "ENT\ENT.csproj", "{9071B3CF-60E6-4C15-919E-87C3C4AFC9D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{094A6A4C-532A-4246-B8DB-FE79D42BD169}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{9071B3CF-60E6-4C15-919E-87C3C4AFC9D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9071B3CF-60E6-4C15-919E-87C3C4AFC9D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9071B3CF-60E6-4C15-919E-87C3C4AFC9D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094A6A4C-532A-4246-B8DB-FE79D42BD169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094A6A4C-532A-4246-B8DB-FE79D42BD169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094A6A4C-532A-4246-B8DB-FE79D42BD169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094A6A4C-532A-4246-B8DB-FE79D42BD169}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
