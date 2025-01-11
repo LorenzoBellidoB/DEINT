@@ -4,12 +4,17 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PersonaApiService"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:views="clr-namespace:PersonaApiService.Views"
+    Shell.FlyoutBehavior="Flyout"
     Title="PersonaApiService">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Personas"
+              ContentTemplate="{DataTemplate views:Personas}" Route="Personas" />
+    </FlyoutItem>
+        <ShellContent Title="CrearPersona" 
+              ContentTemplate="{DataTemplate views:CrearPersona}" Route="CrearPersona" FlyoutItemIsVisible="False"/>
+        <ShellContent Title="EditarPersona" 
+              ContentTemplate="{DataTemplate views:EditarPersona}" Route="EditarPersona" FlyoutItemIsVisible="False"/>
 
 </Shell>

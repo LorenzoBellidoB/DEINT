@@ -22,13 +22,19 @@ namespace PersonaApiService.ViewModels
         private DelegateCommand mostrarPersonas;
 
         private DelegateCommand eliminarPersona;
+
+        private DelegateCommand crearPersona;
+
+        private DelegateCommand editarPersona;
         #endregion
 
         #region Propiedades
-        public List<ClsPersona> ListadoPersonas { get { return listadoPersonas; } set { listadoPersonas = value; } }
+        public List<ClsPersona> ListadoPersonas { get { return listadoPersonas; } }
         public DelegateCommand MostrarPersonas { get{return mostrarPersonas; } set { mostrarPersonas = value; } }
         public DelegateCommand EliminarPersona { get { return eliminarPersona; } set { eliminarPersona = value; } }
-        public ClsPersona PersonaSeleccionada { get { return personaSeleccionada; } set { personaSeleccionada = value; EliminarPersona.RaiseCanExecuteChanged(); NotifyPropertyChanged("PersonaSeleccionada");} }
+        public DelegateCommand CrearPersona { get { return crearPersona; } set { crearPersona = value; } }
+        public DelegateCommand EditarPersona { get { return editarPersona; } set { editarPersona = value; } }
+        public ClsPersona PersonaSeleccionada { get { return personaSeleccionada; } set { personaSeleccionada = value; eliminarPersona.RaiseCanExecuteChanged(); editarPersona.RaiseCanExecuteChanged();} }
         #endregion
 
         #region Constructor
@@ -37,6 +43,8 @@ namespace PersonaApiService.ViewModels
             listadoPersonas = new List<ClsPersona>();
             mostrarPersonas = new DelegateCommand(MostrarListadoExecute);
             eliminarPersona = new DelegateCommand(EliminarPersonaExecute, CanEliminarPersonaExecute);
+            crearPersona = new DelegateCommand(CrearPersonaExecute);
+            editarPersona = new DelegateCommand(EditarPersonaExecute, CanEditarPersonaExecute);
         }
         #endregion
 
@@ -45,7 +53,7 @@ namespace PersonaApiService.ViewModels
         {
             try
             {
-                listadoPersonas = await Services.getPersonas();
+                listadoPersonas = await Services.GetPersonas();
 
             }
             catch (Exception ex)
@@ -67,7 +75,8 @@ namespace PersonaApiService.ViewModels
             {
             try
             {
-                var status = await Services.eliminarPersona(personaSeleccionada.Id);
+                HttpStatusCode status;
+                status = await Services.EliminarPersona(personaSeleccionada.Id);
                 if(status == HttpStatusCode.OK)
                     {
                         await App.Current.MainPage.DisplayAlert("Información", "Persona eliminada", "Aceptar");
@@ -96,7 +105,31 @@ namespace PersonaApiService.ViewModels
             }
             return borrar;
         }
+        
+        private async void CrearPersonaExecute()
+        {
+            await Shell.Current.GoToAsync("///CrearPersona");
+        }
+
+        private async void EditarPersonaExecute()
+        {
+            Dictionary<string, object> diccionarioMandar = new Dictionary<string, object>();
+
+            diccionarioMandar.Add("Persona", PersonaSeleccionada);
+
+            await Shell.Current.GoToAsync("///EditarPersona", diccionarioMandar);
+        }
+        private bool CanEditarPersonaExecute()
+        {
+            bool editar = false;
+            if (personaSeleccionada != null)
+            {
+                editar = true;
+            }
+            return editar;
+        }
         #endregion
+
 
         #region Notify
         public event PropertyChangedEventHandler PropertyChanged;

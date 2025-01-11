@@ -29,5 +29,26 @@ namespace DTO
         public DateTime FechaNacimiento { get { return fechaNacimiento; } set { fechaNacimiento = value; } }
         public int IdDepartamento { get { return idDepartamento; } set { idDepartamento = value; } }
         #endregion
+
+        #region Constructores
+        public ClsPersona() { }
+
+        public ClsPersona(int id, string nombre, string apellidos, string telefono, string direccion, string foto, DateTime fechaNacimiento, int idDepartamento)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.telefono = telefono;
+            this.direccion = direccion;
+            this.foto = foto;
+            this.fechaNacimiento = fechaNacimiento;
+            this.idDepartamento = idDepartamento;
+        }
+
+        public ClsPersona(int id)
+        {
+            this.id = id;
+        }
+        #endregion
     }
 }

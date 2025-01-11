@@ -1,0 +1,63 @@
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vmodel="clr-namespace:PersonaApiService.ViewModels"
+    x:Class="PersonaApiService.Views.CrearPersona"
+    Title="Crear Persona"
+    BackgroundColor="#fff5d3">
+
+    <ContentPage.BindingContext>
+        <vmodel:CrearPersonaVM></vmodel:CrearPersonaVM>
+    </ContentPage.BindingContext>
+
+    <Grid Padding="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <VerticalStackLayout Grid.Row="0">
+        <Entry Placeholder="Nombre" Text="{Binding Nombre}" TextColor="Black"></Entry>
+            <Entry Placeholder="Apellidos" Text="{Binding Apellidos}" TextColor="Black"></Entry>
+            <Entry Placeholder="Telefono" Text="{Binding Telefono}" TextColor="Black" Keyboard="Numeric"></Entry>
+            <Entry Placeholder="Direccion" Text="{Binding Direccion}" TextColor="Black"></Entry>
+            <Entry Placeholder="Foto" Text="{Binding Foto}" TextColor="Black"></Entry>
+            <DatePicker Date="{Binding FechaNacimiento, Mode=TwoWay}" BackgroundColor="Transparent" TextColor="Black"></DatePicker>
+            <Picker BackgroundColor="#e5e5e5" TextColor="Black" ItemsSource="{Binding ListadoDepartamentos}" SelectedItem="{Binding DepartamentoSeleccionado}"
+            ItemDisplayBinding="{Binding Nombre}">
+        </Picker>
+        <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+        <Button Text="Guardar"
+        Command="{Binding CrearPersona}"
+        BackgroundColor="#388E3C"
+        TextColor="White"
+        CornerRadius="20"
+        HeightRequest="50"
+        WidthRequest="130"
+        FontAttributes="Bold">
+            <Button.ImageSource>
+                <FontImageSource Glyph="💾" Size="20" />
+            </Button.ImageSource>
+            <Button.Shadow>
+                 <Shadow Brush="Gray" Offset="5,5" Radius="10" Opacity="0.8" />
+            </Button.Shadow>
+        </Button>
+        <Button Text="Volver"
+        Command="{Binding VolverPersona}"
+        BackgroundColor="Purple"
+        TextColor="White"
+        CornerRadius="20"
+        HeightRequest="50"
+        WidthRequest="130"
+        FontAttributes="Bold">
+            <Button.ImageSource>
+                <FontImageSource Glyph="🔙" Size="20" />
+            </Button.ImageSource>
+            <Button.Shadow>
+                <Shadow Brush="Gray" Offset="5,5" Radius="10" Opacity="0.8" />
+            </Button.Shadow>
+        </Button>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+        </Grid>
+</ContentPage>

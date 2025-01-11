@@ -11,7 +11,7 @@ namespace SERVICES
 {
     public class Services
     {
-        public static async Task<List<ClsPersona>> getPersonas()
+        public static async Task<List<ClsPersona>> GetPersonas()
 
         {
 
@@ -68,7 +68,7 @@ namespace SERVICES
             return listadoPersona;
 
         }
-        public static async Task<HttpStatusCode> eliminarPersona(int id)
+        public static async Task<HttpStatusCode> EliminarPersona(int id)
 
         {
 
@@ -105,6 +105,84 @@ namespace SERVICES
 
             return miRespuesta.StatusCode;
 
+        }
+
+        public static async Task<HttpStatusCode> CrearPersona(ClsPersona persona)
+        {
+            HttpClient mihttpClient = new HttpClient();
+
+            string datos;
+
+            HttpContent contenido;
+
+            string miCadenaUrl = ClsUriBase.getMiCadenaUri();
+
+            Uri miUri = new Uri($"{miCadenaUrl}");
+
+            //Usaremos el Status de la respuesta para comprobar si ha borrado
+
+            HttpResponseMessage miRespuesta = new HttpResponseMessage();
+
+            try
+
+            {
+
+                datos = JsonConvert.SerializeObject(persona);
+
+                contenido = new StringContent(datos, System.Text.Encoding.UTF8, "application/json");
+
+                miRespuesta = await mihttpClient.PostAsync(miUri, contenido);
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+            return miRespuesta.StatusCode;
+        }
+
+        public static async Task<HttpStatusCode> EditarPersona(ClsPersona persona)
+        {
+            HttpClient mihttpClient = new HttpClient();
+
+            string datos;
+
+            HttpContent contenido;
+
+            string miCadenaUrl = ClsUriBase.getMiCadenaUri();
+
+            Uri miUri = new Uri($"{miCadenaUrl}/{persona.Id}");
+
+            //Usaremos el Status de la respuesta para comprobar si ha borrado
+
+            HttpResponseMessage miRespuesta = new HttpResponseMessage();
+
+            try
+
+            {
+
+                datos = JsonConvert.SerializeObject(persona);
+
+                contenido = new StringContent(datos, System.Text.Encoding.UTF8, "application/json");
+
+                miRespuesta = await mihttpClient.PutAsync(miUri, contenido);
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+            return miRespuesta.StatusCode;
         }
 
     }
