@@ -11,6 +11,12 @@ namespace SERVICES
 {
     public class Services
     {
+        /// <summary>
+        /// Método para obtener el listado de personas de la API
+        /// Pre: None
+        /// Post: Devuelve un listado de personas que puede ser nulo si viene vacio
+        /// </summary>
+        /// <returns>Devuelve un listado de personas</returns>
         public static async Task<List<ClsPersona>> GetPersonas()
 
         {
@@ -68,6 +74,13 @@ namespace SERVICES
             return listadoPersona;
 
         }
+        /// <summary>
+        /// Metodo para eliminar una persona de la API
+        /// Pre: None
+        /// Post: Devuelve el codigo de la respuesta
+        /// </summary>
+        /// <param name="id">Id de la persona</param>
+        /// <returns>Devuelve el codigo de la respuesta</returns>
         public static async Task<HttpStatusCode> EliminarPersona(int id)
 
         {
@@ -107,6 +120,13 @@ namespace SERVICES
 
         }
 
+        /// <summary>
+        /// Metodo para crear una persona en la API
+        /// Pre: Debe llegar un objeto de tipo persona
+        /// Post: Devuelve el codigo de la respuesta
+        /// </summary>
+        /// <param name="persona">Persona a crear</param>
+        /// <returns>Devuelve el codigo de la respuesta</returns>
         public static async Task<HttpStatusCode> CrearPersona(ClsPersona persona)
         {
             HttpClient mihttpClient = new HttpClient();
@@ -146,6 +166,13 @@ namespace SERVICES
             return miRespuesta.StatusCode;
         }
 
+        /// <summary>
+        /// Metodo para editar una persona en la API
+        /// Pre: Debe llegar un objeto de tipo persona
+        /// Post: Devuelve el codigo de la respuesta
+        /// </summary>
+        /// <param name="persona">Persona a editar</param>
+        /// <returns>Devuelve el codigo de la respuesta-+</returns>
         public static async Task<HttpStatusCode> EditarPersona(ClsPersona persona)
         {
             HttpClient mihttpClient = new HttpClient();

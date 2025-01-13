@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PersonaApiService.Views.EditarPersona"
              xmlns:vmodel="clr-namespace:PersonaApiService.ViewModels"
-             Title="EditarPersona">
+             Title="EditarPersona"
+             BackgroundColor="#fff5d3">
     <ContentPage.BindingContext>
         <vmodel:EditarPersonaVM></vmodel:EditarPersonaVM>
     </ContentPage.BindingContext>
     
-    <VerticalStackLayout>
+    <VerticalStackLayout MaximumWidthRequest="500" HorizontalOptions="Center" VerticalOptions="Center">
         <Entry Placeholder="Nombre" Text="{Binding PersonaEditar.Nombre}"></Entry>
         <Entry Placeholder="Apellidos" Text="{Binding PersonaEditar.Apellidos}"></Entry>
         <Entry Placeholder="Telefono" Text="{Binding PersonaEditar.Telefono}"></Entry>

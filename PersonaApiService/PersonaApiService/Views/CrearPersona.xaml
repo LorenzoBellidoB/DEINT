@@ -16,7 +16,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <VerticalStackLayout Grid.Row="0">
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center">
         <Entry Placeholder="Nombre" Text="{Binding Nombre}" TextColor="Black"></Entry>
             <Entry Placeholder="Apellidos" Text="{Binding Apellidos}" TextColor="Black"></Entry>
             <Entry Placeholder="Telefono" Text="{Binding Telefono}" TextColor="Black" Keyboard="Numeric"></Entry>

@@ -19,7 +19,11 @@ namespace PersonaApiService.ViewModels
 
         private ClsPersona personaSeleccionada;
 
-        private DelegateCommand mostrarPersonas;
+        private bool isRunninng = true;
+
+        private bool isVisible = true;
+
+        //private DelegateCommand mostrarPersonas;
 
         private DelegateCommand eliminarPersona;
 
@@ -30,7 +34,9 @@ namespace PersonaApiService.ViewModels
 
         #region Propiedades
         public List<ClsPersona> ListadoPersonas { get { return listadoPersonas; } }
-        public DelegateCommand MostrarPersonas { get{return mostrarPersonas; } set { mostrarPersonas = value; } }
+        public bool IsRunninng { get { return isRunninng; } set { isRunninng = value; } }
+        public bool IsVisible { get { return isVisible; } set { isVisible = value; } }
+        //public DelegateCommand MostrarPersonas { get{return mostrarPersonas; } set { mostrarPersonas = value; } }
         public DelegateCommand EliminarPersona { get { return eliminarPersona; } set { eliminarPersona = value; } }
         public DelegateCommand CrearPersona { get { return crearPersona; } set { crearPersona = value; } }
         public DelegateCommand EditarPersona { get { return editarPersona; } set { editarPersona = value; } }
@@ -41,7 +47,8 @@ namespace PersonaApiService.ViewModels
         public PersonasVM()
         {
             listadoPersonas = new List<ClsPersona>();
-            mostrarPersonas = new DelegateCommand(MostrarListadoExecute);
+            MostrarListadoExecute();
+            //mostrarPersonas = new DelegateCommand(MostrarListadoExecute);
             eliminarPersona = new DelegateCommand(EliminarPersonaExecute, CanEliminarPersonaExecute);
             crearPersona = new DelegateCommand(CrearPersonaExecute);
             editarPersona = new DelegateCommand(EditarPersonaExecute, CanEditarPersonaExecute);
@@ -129,7 +136,6 @@ namespace PersonaApiService.ViewModels
             return editar;
         }
         #endregion
-
 
         #region Notify
         public event PropertyChangedEventHandler PropertyChanged;

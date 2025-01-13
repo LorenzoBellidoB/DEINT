@@ -15,34 +15,29 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
-        <CollectionView Grid.Row="0"
-                        ItemsSource="{Binding ListadoPersonas}"
+        <VerticalStackLayout Grid.Row="0">
+            <ActivityIndicator IsRunning="False"
+                               IsVisible="False"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"></ActivityIndicator>
+        <CollectionView ItemsSource="{Binding ListadoPersonas}"
                         SelectedItem="{Binding PersonaSeleccionada, Mode=TwoWay}"
                         SelectionMode="Single"
                         Margin="0,0,0,10">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BorderColor="#DDD" CornerRadius="15" Padding="15" Margin="5"
+                        <Frame BorderColor="#DDD" CornerRadius="15" Padding="15" Margin="5"
                            HasShadow="True"
                            BackgroundColor="White">
-                        <Frame.Triggers>
-                            <DataTrigger TargetType="Frame"
-                                         Binding="{Binding IsSelected, Source={RelativeSource AncestorType={x:Type CollectionView}}}"
-                                         Value="True">
-                                <Setter Property="BackgroundColor" Value="#D1E8FF"/>
-                                <Setter Property="BorderColor" Value="#007AFF"/>
-                            </DataTrigger>
-                        </Frame.Triggers>
 
-                        <Grid ColumnSpacing="10">
+                            <Grid ColumnSpacing="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
 
-                            <Image Source="{Binding Foto}" WidthRequest="50" HeightRequest="50"/>
+                            <Image Grid.Column="0" Source="{Binding Foto}" WidthRequest="50" HeightRequest="50"/>
 
 
                             <VerticalStackLayout Grid.Column="1">
@@ -62,25 +57,9 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
+        </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
-
-            <Button Text="Mostrar"
-                    Command="{Binding MostrarPersonas}"
-                    BackgroundColor="#6200EE"
-                    TextColor="White"
-                    CornerRadius="20"
-                    HeightRequest="50"
-                    WidthRequest="130"
-                    FontAttributes="Bold">
-                <Button.ImageSource>
-                    <FontImageSource Glyph="👁️" Size="20" />
-                </Button.ImageSource>
-                <Button.Shadow>
-                    <Shadow Brush="Gray" Offset="5,5" Radius="10" Opacity="0.8" />
-                </Button.Shadow>
-            </Button>
 
             <Button Text="Eliminar"
                     Command="{Binding EliminarPersona}"
@@ -125,6 +104,9 @@
                 <Button.ImageSource>
                     <FontImageSource Glyph="✏️" Size="20" />
                 </Button.ImageSource>
+                <Button.Shadow>
+                    <Shadow Brush="Gray" Offset="5,5" Radius="10" Opacity="0.8" />
+                </Button.Shadow>
             </Button>
 
         </HorizontalStackLayout>
