@@ -94,7 +94,8 @@ namespace PersonaApiService.ViewModels
                     {
                         await App.Current.MainPage.DisplayAlert("Información", "Error al eliminar la persona", "Aceptar");
                     }
-                
+                    personaSeleccionada = null;
+                    NotifyPropertyChanged("PersonaSeleccionada");
                 }
             catch (Exception ex)
             {
@@ -117,6 +118,8 @@ namespace PersonaApiService.ViewModels
         private async void CrearPersonaExecute()
         {
             await Shell.Current.GoToAsync("///CrearPersona");
+            personaSeleccionada = null;
+            NotifyPropertyChanged("PersonaSeleccionada");
         }
 
         private async void EditarPersonaExecute()
@@ -127,6 +130,8 @@ namespace PersonaApiService.ViewModels
 
             await Shell.Current.GoToAsync("///EditarPersona", diccionarioMandar);
 
+            personaSeleccionada = null;
+            NotifyPropertyChanged("PersonaSeleccionada");
         }
         private bool CanEditarPersonaExecute()
         {

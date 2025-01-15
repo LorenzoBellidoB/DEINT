@@ -17,7 +17,9 @@
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="0">
             <VerticalStackLayout>
-                <ActivityIndicator IsRunning="{Binding IsRunning}"
+                <ActivityIndicator MinimumHeightRequest="75"
+                                   MinimumWidthRequest="75"
+                                   IsRunning="{Binding IsRunning}"
                                    IsVisible="{Binding IsRunning}"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"></ActivityIndicator>

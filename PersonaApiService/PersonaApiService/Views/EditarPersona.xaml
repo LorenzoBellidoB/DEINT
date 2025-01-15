@@ -17,7 +17,7 @@
         <Entry Placeholder="Foto" Text="{Binding PersonaEditar.Foto}"></Entry>
         <DatePicker MinimumDate="01/01/1900" Date="{Binding PersonaEditar.FechaNacimiento}"></DatePicker>
         <Picker ItemsSource="{Binding ListadoDepartamentos}" SelectedItem="{Binding DepartamentoSeleccionado}"
-    ItemDisplayBinding="{Binding Nombre}">
+        ItemDisplayBinding="{Binding Nombre}" >
         </Picker>
         
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">

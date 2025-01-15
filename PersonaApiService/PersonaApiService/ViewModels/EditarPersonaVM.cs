@@ -29,7 +29,14 @@ namespace PersonaApiService.ViewModels
         #endregion
 
         #region Propiedades
-        public ClsPersona PersonaEditar { get{ return personaEditar; } set { personaEditar = value; NotifyPropertyChanged("PersonaEditar"); } }
+        public ClsPersona PersonaEditar { get{ return personaEditar; } set {
+                if (value != null)
+                {
+                    departamentoSeleccionado = listadodepartamentos.FirstOrDefault(d => d.Id == personaEditar.IdDepartamento);
+                    NotifyPropertyChanged("DepartamentoSeleccionado");
+                }
+                personaEditar = value; NotifyPropertyChanged("PersonaEditar"); 
+            } }
         public List<ClsDepartamento> ListadoDepartamentos { get { return listadodepartamentos; } }
         public ClsDepartamento DepartamentoSeleccionado { get { return departamentoSeleccionado; } set { departamentoSeleccionado = value; NotifyPropertyChanged("DepartamentoSeleccionado"); } }
         public DelegateCommand GuardarPersona { get { return guardarPersona; } set { guardarPersona = value; } }
@@ -41,6 +48,7 @@ namespace PersonaApiService.ViewModels
         {
             CargarDepartamentos();
             listadodepartamentos = new List<ClsDepartamento>();
+            departamentoSeleccionado = new ClsDepartamento();
             guardarPersona = new DelegateCommand(GuardarPersonaExecute);
             volverPersona = new DelegateCommand(VolverPersonaExecute);
         }
