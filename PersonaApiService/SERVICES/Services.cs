@@ -23,7 +23,7 @@ namespace SERVICES
 
             //Pido la cadena de la Uri al método estático
 
-            string miCadenaUrl = ClsUriBase.getMiCadenaUri();
+            string miCadenaUrl = ClsUriBase.getMiCadenaPersonas();
 
             Uri miUri = new Uri($"{miCadenaUrl}");
 
@@ -74,6 +74,71 @@ namespace SERVICES
             return listadoPersona;
 
         }
+
+        /// <summary>
+        /// Método para obtener el listado de departamentos de la API
+        /// Pre: None
+        /// Post: Devuelve un listado de departamentos que puede ser nulo si viene vacio
+        /// </summary>
+        /// <returns>Devuelve un listado de departamentos</returns>
+        public static async Task<List<ClsDepartamento>> GetDepartamentos()
+
+        {
+
+            //Pido la cadena de la Uri al método estático
+
+            string miCadenaUrl = ClsUriBase.getMiCadenaDepartamentos();
+
+            Uri miUri = new Uri($"{miCadenaUrl}");
+
+            List<ClsDepartamento> listadoDepartamentos = new List<ClsDepartamento>();
+
+            HttpClient mihttpClient;
+
+            HttpResponseMessage miCodigoRespuesta;
+
+            string textoJsonRespuesta;
+
+            //Instanciamos el cliente Http
+
+            mihttpClient = new HttpClient();
+
+            try
+
+            {
+
+                miCodigoRespuesta = await mihttpClient.GetAsync(miUri);
+
+                if (miCodigoRespuesta.IsSuccessStatusCode)
+
+                {
+
+                    textoJsonRespuesta = await mihttpClient.GetStringAsync(miUri);
+
+                    mihttpClient.Dispose();
+
+                    //JsonConvert necesita using Newtonsoft.Json;
+
+                    //Es el paquete Nuget de Newtonsoft
+
+                    listadoDepartamentos = JsonConvert.DeserializeObject<List<ClsDepartamento>>(textoJsonRespuesta);
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+            return listadoDepartamentos;
+
+        }
+
         /// <summary>
         /// Metodo para eliminar una persona de la API
         /// Pre: None
@@ -91,7 +156,7 @@ namespace SERVICES
 
             HttpContent contenido;
 
-            string miCadenaUrl = ClsUriBase.getMiCadenaUri();
+            string miCadenaUrl = ClsUriBase.getMiCadenaPersonas();
 
             Uri miUri = new Uri($"{miCadenaUrl}/{id}");
 
@@ -135,7 +200,7 @@ namespace SERVICES
 
             HttpContent contenido;
 
-            string miCadenaUrl = ClsUriBase.getMiCadenaUri();
+            string miCadenaUrl = ClsUriBase.getMiCadenaPersonas();
 
             Uri miUri = new Uri($"{miCadenaUrl}");
 
@@ -181,7 +246,7 @@ namespace SERVICES
 
             HttpContent contenido;
 
-            string miCadenaUrl = ClsUriBase.getMiCadenaUri();
+            string miCadenaUrl = ClsUriBase.getMiCadenaPersonas();
 
             Uri miUri = new Uri($"{miCadenaUrl}/{persona.Id}");
 

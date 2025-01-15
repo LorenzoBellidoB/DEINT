@@ -12,9 +12,18 @@ namespace SERVICES
         /// Metodo para obtener la cadena de la Uri base
         /// </summary>
         /// <returns>Devuelve la cadena de la Uri</returns>
-        public static String getMiCadenaUri()
+        public static String getMiCadenaPersonas()
         {
             return "https://lorenzoasp.azurewebsites.net/Api/PersonaApi";
+        }
+
+        /// <summary>
+        /// Metodo para obtener la cadena de la Uri base
+        /// </summary>
+        /// <returns>Devuelve la cadena de la Uri</returns>
+        public static String getMiCadenaDepartamentos()
+        {
+            return "https://lorenzoasp.azurewebsites.net/Api/Departamentos";
         }
     }
 }

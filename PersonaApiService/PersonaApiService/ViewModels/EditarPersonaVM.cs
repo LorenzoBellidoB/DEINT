@@ -3,6 +3,7 @@ using EjercicioU10.ViewModels.Utilidades;
 using SERVICES;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
@@ -20,6 +21,8 @@ namespace PersonaApiService.ViewModels
 
         private List<ClsDepartamento> listadodepartamentos;
 
+        private ClsDepartamento departamentoSeleccionado;
+
         private DelegateCommand guardarPersona;
 
         private DelegateCommand volverPersona;
@@ -27,7 +30,8 @@ namespace PersonaApiService.ViewModels
 
         #region Propiedades
         public ClsPersona PersonaEditar { get{ return personaEditar; } set { personaEditar = value; NotifyPropertyChanged("PersonaEditar"); } }
-        public List<ClsDepartamento> Listadodepartamentos { get { return listadodepartamentos; } }
+        public List<ClsDepartamento> ListadoDepartamentos { get { return listadodepartamentos; } }
+        public ClsDepartamento DepartamentoSeleccionado { get { return departamentoSeleccionado; } set { departamentoSeleccionado = value; NotifyPropertyChanged("DepartamentoSeleccionado"); } }
         public DelegateCommand GuardarPersona { get { return guardarPersona; } set { guardarPersona = value; } }
         public DelegateCommand VolverPersona { get { return volverPersona; } set { volverPersona = value; } }
         #endregion
@@ -35,6 +39,7 @@ namespace PersonaApiService.ViewModels
         #region Constructores
         public EditarPersonaVM()
         {
+            CargarDepartamentos();
             listadodepartamentos = new List<ClsDepartamento>();
             guardarPersona = new DelegateCommand(GuardarPersonaExecute);
             volverPersona = new DelegateCommand(VolverPersonaExecute);
@@ -45,6 +50,7 @@ namespace PersonaApiService.ViewModels
         private async void GuardarPersonaExecute()
         {
             HttpStatusCode status;
+            personaEditar.IdDepartamento = departamentoSeleccionado.Id;
             status = await Services.EditarPersona(personaEditar);
             if (status == HttpStatusCode.OK)
             {
@@ -61,6 +67,16 @@ namespace PersonaApiService.ViewModels
         private async void VolverPersonaExecute()
         {
             await Shell.Current.GoToAsync("///Personas");
+        }
+        #endregion
+
+        #region Métodos
+        private async void CargarDepartamentos()
+        {
+            listadodepartamentos = await Services.GetDepartamentos();
+            NotifyPropertyChanged("ListadoDepartamentos");
+            NotifyPropertyChanged("DepartamentoSeleccionado");
+
         }
         #endregion
 

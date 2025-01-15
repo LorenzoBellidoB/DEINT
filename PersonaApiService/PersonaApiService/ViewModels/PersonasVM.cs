@@ -21,9 +21,7 @@ namespace PersonaApiService.ViewModels
 
         private bool isRunninng = true;
 
-        private bool isVisible = true;
-
-        //private DelegateCommand mostrarPersonas;
+        private DelegateCommand mostrarPersonas;
 
         private DelegateCommand eliminarPersona;
 
@@ -34,9 +32,8 @@ namespace PersonaApiService.ViewModels
 
         #region Propiedades
         public List<ClsPersona> ListadoPersonas { get { return listadoPersonas; } }
-        public bool IsRunninng { get { return isRunninng; } set { isRunninng = value; } }
-        public bool IsVisible { get { return isVisible; } set { isVisible = value; } }
-        //public DelegateCommand MostrarPersonas { get{return mostrarPersonas; } set { mostrarPersonas = value; } }
+        public bool IsRunning { get { return isRunninng; } set { isRunninng = value; } }
+        public DelegateCommand MostrarPersonas { get{return mostrarPersonas; } set { mostrarPersonas = value; } }
         public DelegateCommand EliminarPersona { get { return eliminarPersona; } set { eliminarPersona = value; } }
         public DelegateCommand CrearPersona { get { return crearPersona; } set { crearPersona = value; } }
         public DelegateCommand EditarPersona { get { return editarPersona; } set { editarPersona = value; } }
@@ -48,7 +45,7 @@ namespace PersonaApiService.ViewModels
         {
             listadoPersonas = new List<ClsPersona>();
             MostrarListadoExecute();
-            //mostrarPersonas = new DelegateCommand(MostrarListadoExecute);
+            mostrarPersonas = new DelegateCommand(MostrarListadoExecute);
             eliminarPersona = new DelegateCommand(EliminarPersonaExecute, CanEliminarPersonaExecute);
             crearPersona = new DelegateCommand(CrearPersonaExecute);
             editarPersona = new DelegateCommand(EditarPersonaExecute, CanEditarPersonaExecute);
@@ -60,6 +57,8 @@ namespace PersonaApiService.ViewModels
         {
             try
             {
+                isRunninng = true;
+                NotifyPropertyChanged("IsRunning");
                 listadoPersonas = await Services.GetPersonas();
 
             }
@@ -69,6 +68,8 @@ namespace PersonaApiService.ViewModels
             }
             finally
             {
+                isRunninng = false;
+                NotifyPropertyChanged("IsRunning");
                 NotifyPropertyChanged("ListadoPersonas");
                 
             }
@@ -87,14 +88,14 @@ namespace PersonaApiService.ViewModels
                 if(status == HttpStatusCode.OK)
                     {
                         await App.Current.MainPage.DisplayAlert("Información", "Persona eliminada", "Aceptar");
+                        MostrarListadoExecute();
                     }
                     else
                     {
                         await App.Current.MainPage.DisplayAlert("Información", "Error al eliminar la persona", "Aceptar");
                     }
                 
-                MostrarListadoExecute();
-            }
+                }
             catch (Exception ex)
             {
 
@@ -125,6 +126,7 @@ namespace PersonaApiService.ViewModels
             diccionarioMandar.Add("Persona", PersonaSeleccionada);
 
             await Shell.Current.GoToAsync("///EditarPersona", diccionarioMandar);
+
         }
         private bool CanEditarPersonaExecute()
         {

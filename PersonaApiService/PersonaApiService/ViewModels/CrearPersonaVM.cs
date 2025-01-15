@@ -17,27 +17,28 @@ namespace PersonaApiService.ViewModels
         #region Atributos
         private ClsPersona personaCreada;
         private List<ClsDepartamento> listadodepartamentos;
+        private ClsDepartamento departamentoSeleccionado;
         private string nombre = "";
         private string apellidos = "";
         private string telefono = "";
         private string direccion = "";
         private string foto = "";
         private DateTime fechaNacimiento = DateTime.Now;
-        private string departamento = "";
         private DelegateCommand crearPersona;
         private DelegateCommand volverPersona;
         #endregion
 
         #region Propiedades
-        public List<ClsDepartamento> ListadoDepartamentos { get { return listadodepartamentos; } set { listadodepartamentos = value; } } //propfull>
+        public List<ClsDepartamento> ListadoDepartamentos { get { return listadodepartamentos; } set { listadodepartamentos = value; } }
+        public ClsDepartamento DepartamentoSeleccionado { get { return departamentoSeleccionado; } set { departamentoSeleccionado = value; NotifyPropertyChanged("DepartamentoSeleccionado"); } }
+
         public string Nombre { get { return nombre; } set { nombre = value; crearPersona.RaiseCanExecuteChanged();} }
         public string Apellidos { get {return apellidos; } set { apellidos = value; crearPersona.RaiseCanExecuteChanged(); } }
         public string Telefono { get { return telefono; } set { telefono = value; crearPersona.RaiseCanExecuteChanged(); } }
         public string Direccion { get { return direccion; } set { direccion = value; crearPersona.RaiseCanExecuteChanged(); } }
         public string Foto { get { return foto; } set { foto = value; crearPersona.RaiseCanExecuteChanged(); } }   
         public DateTime FechaNacimiento { get { return fechaNacimiento; } set { fechaNacimiento = value; crearPersona.RaiseCanExecuteChanged(); } }
-        public string Departamento { get { return departamento; } set { departamento = value; crearPersona.RaiseCanExecuteChanged(); } }
-        public DelegateCommand CrearPersona { get { return crearPersona; } set { crearPersona = value; crearPersona.RaiseCanExecuteChanged(); } }
+         public DelegateCommand CrearPersona { get { return crearPersona; } set { crearPersona = value; crearPersona.RaiseCanExecuteChanged(); } }
         public DelegateCommand VolverPersona { get { return volverPersona; } set { volverPersona = value; } }
         #endregion
 
@@ -45,7 +46,7 @@ namespace PersonaApiService.ViewModels
         public CrearPersonaVM()
         {
             personaCreada = new ClsPersona();
-            listadodepartamentos = new List<ClsDepartamento>();
+            CargarDepartamentos();
             crearPersona = new DelegateCommand(CrearPersonaExecute,CanCrearPersonaExecute);
             volverPersona = new DelegateCommand(VolverPersonaExecute);
         }
@@ -63,8 +64,7 @@ namespace PersonaApiService.ViewModels
                 personaCreada.Direccion = direccion;
                 personaCreada.Foto = foto;
                 personaCreada.FechaNacimiento = fechaNacimiento;
-                // No he hecho el listado para ponerlo bien
-                personaCreada.IdDepartamento = 1;
+                personaCreada.IdDepartamento = departamentoSeleccionado.Id;
                 if (personaCreada != null)
                 {
                 status = await Services.CrearPersona(personaCreada);
@@ -117,6 +117,13 @@ namespace PersonaApiService.ViewModels
                 rellena = true;
             }
             return rellena;
+        }
+        private async void CargarDepartamentos()
+        {
+            listadodepartamentos = await Services.GetDepartamentos();
+            NotifyPropertyChanged("ListadoDepartamentos");
+            NotifyPropertyChanged("DepartamentoSeleccionado");
+
         }
         #endregion
 

@@ -22,7 +22,7 @@
             <Entry Placeholder="Telefono" Text="{Binding Telefono}" TextColor="Black" Keyboard="Numeric"></Entry>
             <Entry Placeholder="Direccion" Text="{Binding Direccion}" TextColor="Black"></Entry>
             <Entry Placeholder="Foto" Text="{Binding Foto}" TextColor="Black"></Entry>
-            <DatePicker Date="{Binding FechaNacimiento, Mode=TwoWay}" BackgroundColor="Transparent" TextColor="Black"></DatePicker>
+            <DatePicker MinimumDate="01/01/1900" Date="{Binding FechaNacimiento, Mode=TwoWay}" BackgroundColor="Transparent" TextColor="Black"></DatePicker>
             <Picker BackgroundColor="#e5e5e5" TextColor="Black" ItemsSource="{Binding ListadoDepartamentos}" SelectedItem="{Binding DepartamentoSeleccionado}"
             ItemDisplayBinding="{Binding Nombre}">
         </Picker>

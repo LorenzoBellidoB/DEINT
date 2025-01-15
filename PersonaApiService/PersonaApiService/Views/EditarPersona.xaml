@@ -15,10 +15,11 @@
         <Entry Placeholder="Telefono" Text="{Binding PersonaEditar.Telefono}"></Entry>
         <Entry Placeholder="Direccion" Text="{Binding PersonaEditar.Direccion}"></Entry>
         <Entry Placeholder="Foto" Text="{Binding PersonaEditar.Foto}"></Entry>
-        <DatePicker Date="{Binding PersonaEditar.FechaNacimiento}"></DatePicker>
+        <DatePicker MinimumDate="01/01/1900" Date="{Binding PersonaEditar.FechaNacimiento}"></DatePicker>
         <Picker ItemsSource="{Binding ListadoDepartamentos}" SelectedItem="{Binding DepartamentoSeleccionado}"
     ItemDisplayBinding="{Binding Nombre}">
         </Picker>
+        
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
             <Button Text="Guardar"
             Command="{Binding GuardarPersona}"
