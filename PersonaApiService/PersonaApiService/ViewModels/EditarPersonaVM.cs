@@ -1,5 +1,6 @@
 ﻿using DTO;
 using EjercicioU10.ViewModels.Utilidades;
+using Newtonsoft.Json.Linq;
 using SERVICES;
 using System;
 using System.Collections.Generic;
@@ -30,24 +31,21 @@ namespace PersonaApiService.ViewModels
 
         #region Propiedades
         public ClsPersona PersonaEditar { get{ return personaEditar; } set {
-                if (value != null)
-                {
-                    departamentoSeleccionado = listadodepartamentos.FirstOrDefault(d => d.Id == personaEditar.IdDepartamento);
-                    NotifyPropertyChanged("DepartamentoSeleccionado");
-                }
+                
                 personaEditar = value; NotifyPropertyChanged("PersonaEditar"); 
             } }
         public List<ClsDepartamento> ListadoDepartamentos { get { return listadodepartamentos; } }
         public ClsDepartamento DepartamentoSeleccionado { get { return departamentoSeleccionado; } set { departamentoSeleccionado = value; NotifyPropertyChanged("DepartamentoSeleccionado"); } }
-        public DelegateCommand GuardarPersona { get { return guardarPersona; } set { guardarPersona = value; } }
-        public DelegateCommand VolverPersona { get { return volverPersona; } set { volverPersona = value; } }
+        public DelegateCommand GuardarPersona { get { return guardarPersona; }  }
+        public DelegateCommand VolverPersona { get { return volverPersona; }  }
         #endregion
 
         #region Constructores
         public EditarPersonaVM()
         {
-            CargarDepartamentos();
             listadodepartamentos = new List<ClsDepartamento>();
+            CargarDepartamentos();  
+
             departamentoSeleccionado = new ClsDepartamento();
             guardarPersona = new DelegateCommand(GuardarPersonaExecute);
             volverPersona = new DelegateCommand(VolverPersonaExecute);
@@ -58,7 +56,15 @@ namespace PersonaApiService.ViewModels
         private async void GuardarPersonaExecute()
         {
             HttpStatusCode status;
-            personaEditar.IdDepartamento = departamentoSeleccionado.Id;
+            if(departamentoSeleccionado != null)
+            {
+                personaEditar.IdDepartamento = departamentoSeleccionado.Id;
+            }
+            else
+            {
+                personaEditar.IdDepartamento = personaEditar.IdDepartamento;
+            }
+            
             status = await Services.EditarPersona(personaEditar);
             if (status == HttpStatusCode.OK)
             {
@@ -82,6 +88,11 @@ namespace PersonaApiService.ViewModels
         private async void CargarDepartamentos()
         {
             listadodepartamentos = await Services.GetDepartamentos();
+            if (personaEditar != null)
+            {
+                departamentoSeleccionado = listadodepartamentos.FirstOrDefault(d => d.Id == personaEditar.IdDepartamento);
+                NotifyPropertyChanged("DepartamentoSeleccionado");
+            }
             NotifyPropertyChanged("ListadoDepartamentos");
             NotifyPropertyChanged("DepartamentoSeleccionado");
 

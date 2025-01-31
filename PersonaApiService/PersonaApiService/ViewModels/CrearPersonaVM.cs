@@ -29,7 +29,7 @@ namespace PersonaApiService.ViewModels
         #endregion
 
         #region Propiedades
-        public List<ClsDepartamento> ListadoDepartamentos { get { return listadodepartamentos; } set { listadodepartamentos = value; } }
+        public List<ClsDepartamento> ListadoDepartamentos { get { return listadodepartamentos; } }
         public ClsDepartamento DepartamentoSeleccionado { get { return departamentoSeleccionado; } set { departamentoSeleccionado = value; NotifyPropertyChanged("DepartamentoSeleccionado"); } }
 
         public string Nombre { get { return nombre; } set { nombre = value; crearPersona.RaiseCanExecuteChanged();} }
@@ -37,9 +37,9 @@ namespace PersonaApiService.ViewModels
         public string Telefono { get { return telefono; } set { telefono = value; crearPersona.RaiseCanExecuteChanged(); } }
         public string Direccion { get { return direccion; } set { direccion = value; crearPersona.RaiseCanExecuteChanged(); } }
         public string Foto { get { return foto; } set { foto = value; crearPersona.RaiseCanExecuteChanged(); } }   
-        public DateTime FechaNacimiento { get { return fechaNacimiento; } set { fechaNacimiento = value; crearPersona.RaiseCanExecuteChanged(); } }
-         public DelegateCommand CrearPersona { get { return crearPersona; } set { crearPersona = value; crearPersona.RaiseCanExecuteChanged(); } }
-        public DelegateCommand VolverPersona { get { return volverPersona; } set { volverPersona = value; } }
+        public DateTime FechaNacimiento { get { return fechaNacimiento; }  set { fechaNacimiento = value; crearPersona.RaiseCanExecuteChanged(); } }
+         public DelegateCommand CrearPersona { get { return crearPersona; } }  
+        public DelegateCommand VolverPersona { get { return volverPersona; } }
         #endregion
 
         #region Constructores
